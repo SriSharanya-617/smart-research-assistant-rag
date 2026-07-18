@@ -1,0 +1,12 @@
+[theme]
+primaryColor = "#4F46E5"          # Slate/Indigo primary
+backgroundColor = "#0F172A"       # Dark background
+secondaryBackgroundColor = "#1E293B" # Slightly lighter dark gray for containers
+textColor = "#F8FAFC"             # Crisp light gray text
+font = "sans serif"
+
+[server]
+port = 8501
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 20

@@ -1,0 +1,24 @@
+=========================================================
+SMART RESEARCH ASSISTANT - SAMPLE KNOWLEDGE DOCUMENT
+=========================================================
+
+1. PROJECT SUMMARY
+-----------------
+The Smart Research Assistant is a modular Retrieval-Augmented Generation (RAG) platform.
+It uses Python 3.11, Streamlit for UI rendering, and LangChain for pipeline abstractions.
+The default embedding model is Hugging Face Sentence Transformers (all-MiniLM-L6-v2).
+It supports vector stores like ChromaDB and FAISS under a unified interface.
+
+2. MULTI-PROVIDER LLM SUPPORT
+-----------------------------
+The system includes a provider abstraction supporting:
+- OpenAI (GPT models)
+- Anthropic (Claude models)
+- Ollama (Local open source models)
+- Hugging Face (Remote Inference Endpoints)
+
+3. QUALITY TESTING & DEVELOPMENT
+--------------------------------
+The project uses pytest to run automated unit testing.
+A deployment checklist validator script is located at scripts/deploy_check.py.
+Custom styles are configured at assets/styles.css.
