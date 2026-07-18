@@ -32,8 +32,8 @@ DEFAULT_LLM_MODEL: str = "gpt-4o-mini"
 OLLAMA_FALLBACK_URL: str = "http://localhost:11434"
 
 # Supported Providers List
-SUPPORTED_LLM_PROVIDERS: List[str] = ["openai", "anthropic", "ollama", "huggingface"]
-SUPPORTED_EMBEDDING_PROVIDERS: List[str] = ["huggingface", "openai"]
+SUPPORTED_LLM_PROVIDERS: List[str] = ["openai", "anthropic", "ollama", "huggingface", "gemini", "google", "mock"]
+SUPPORTED_EMBEDDING_PROVIDERS: List[str] = ["huggingface", "openai", "mock"]
 SUPPORTED_VECTOR_STORES: List[str] = ["chroma", "faiss"]
 
 # Streamlit Page Titles

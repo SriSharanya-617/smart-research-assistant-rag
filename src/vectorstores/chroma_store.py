@@ -95,11 +95,17 @@ class ChromaVectorStore(BaseVectorStore):
         lc_docs = []
         doc_ids = []
         
+        seen_batch_ids = set()
         for idx, doc in enumerate(documents):
             chunk_id = doc.metadata.get("chunk_id")
             if not chunk_id:
                 raise ValueError(f"Document at index {idx} is missing 'chunk_id' metadata.")
             
+            # Skip if duplicate within the current insertion batch
+            if chunk_id in seen_batch_ids:
+                logger.warning(f"Duplicate chunk ID in current batch: {chunk_id}. Skipping.")
+                continue
+
             # Check for duplicate chunk_id in current index if loaded
             if self.db is not None:
                 # Query index to verify ID uniqueness
@@ -108,6 +114,7 @@ class ChromaVectorStore(BaseVectorStore):
                     logger.warning(f"Duplicate chunk ID detected: {chunk_id}. Skipping.")
                     continue
                     
+            seen_batch_ids.add(chunk_id)
             # Inject embedding model ID to metadata
             metadata = doc.metadata.copy()
             metadata["embedding_model"] = getattr(self.embeddings, "model_name", "unknown")

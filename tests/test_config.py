@@ -10,8 +10,8 @@ def test_default_config_values():
     Verifies that default config initialization carries fallback constants.
     """
     config = AppConfig()
-    assert config.LLM_PROVIDER in ["openai", "anthropic", "ollama", "huggingface"]
-    assert config.EMBEDDING_PROVIDER in ["huggingface", "openai"]
+    assert config.LLM_PROVIDER in ["openai", "anthropic", "ollama", "huggingface", "gemini", "google", "mock"]
+    assert config.EMBEDDING_PROVIDER in ["huggingface", "openai", "mock"]
     assert config.VECTOR_STORE_TYPE in ["chroma", "faiss"]
 
 

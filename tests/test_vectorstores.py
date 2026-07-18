@@ -214,3 +214,27 @@ def test_invalid_vector_values(tmp_path, mock_embeddings):
         with pytest.raises(ValueError) as exc_info:
             store.add_documents([invalid_doc])
         assert "contains infinite" in str(exc_info.value)
+
+
+@pytest.mark.parametrize("store_type,store_class", [("chroma", ChromaVectorStore), ("faiss", FAISSVectorStore)])
+def test_vector_store_batch_duplicates(tmp_path, mock_embeddings, store_type, store_class):
+    """
+    Asserts inserting identical document chunks in the same batch filters them out without crashing.
+    """
+    persist_dir = str(tmp_path / f"batch_dups_{store_type}")
+    store = VectorStoreFactory.get_vector_store(store_type, mock_embeddings, persist_dir)
+    
+    docs = create_sample_docs()
+    # Create duplicate documents list
+    duplicated_docs = [docs[0], docs[0], docs[0]]
+    
+    # This should succeed without raising expected unique ID exceptions
+    store.add_documents(duplicated_docs)
+    
+    # Verify only one was actually added
+    if store_type == "chroma":
+        all_items = store.db._collection.get(include=["metadatas"])
+        assert len(all_items.get("ids", [])) == 1
+    else:
+        assert len(store.db.docstore._dict) == 1
+

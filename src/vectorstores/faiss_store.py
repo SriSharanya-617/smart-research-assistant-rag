@@ -72,15 +72,22 @@ class FAISSVectorStore(BaseVectorStore):
         Check if any of the ids are already present in the local FAISS docstore.
         """
         if self.db is None:
-            return doc_ids
+            # Deduplicate the list internally to avoid duplicates in the same initialization batch
+            seen = set()
+            return [x for x in doc_ids if not (x in seen or seen.add(x))]
             
         non_duplicates = []
+        seen_batch = set()
         for doc_id in doc_ids:
+            if doc_id in seen_batch:
+                logger.warning(f"Duplicate chunk ID in current batch: {doc_id}. Skipping.")
+                continue
             # FAISS uses docstore containing document dict mapped by index ID
             # In LangChain FAISS wrapper, the index ID matches the provided ID if supplied
             if doc_id in self.db.docstore._dict:
                 logger.warning(f"Duplicate chunk ID detected in FAISS docstore: {doc_id}. Skipping.")
                 continue
+            seen_batch.add(doc_id)
             non_duplicates.append(doc_id)
             
         return non_duplicates
@@ -117,7 +124,15 @@ class FAISSVectorStore(BaseVectorStore):
 
         # Skip duplicates
         unique_ids = self._check_duplicates(doc_ids)
-        filtered_docs = [doc for doc, chunk_id in zip(lc_docs, doc_ids) if chunk_id in unique_ids]
+        
+        filtered_docs = []
+        filtered_ids = []
+        seen_ids = set()
+        for doc, chunk_id in zip(lc_docs, doc_ids):
+            if chunk_id in unique_ids and chunk_id not in seen_ids:
+                filtered_docs.append(doc)
+                filtered_ids.append(chunk_id)
+                seen_ids.add(chunk_id)
 
         if not filtered_docs:
             logger.info("No new non-duplicate documents to add to FAISS.")
@@ -129,10 +144,10 @@ class FAISSVectorStore(BaseVectorStore):
                 self.db = FAISS.from_documents(
                     documents=filtered_docs,
                     embedding=self.lc_embeddings,
-                    ids=unique_ids
+                    ids=filtered_ids
                 )
             else:
-                self.db.add_documents(documents=filtered_docs, ids=unique_ids)
+                self.db.add_documents(documents=filtered_docs, ids=filtered_ids)
             
             # Persist FAISS to disk immediately
             self.save(self.persist_directory)
