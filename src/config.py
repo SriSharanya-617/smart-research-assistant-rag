@@ -41,6 +41,8 @@ class AppConfig(BaseSettings):
     LLM_PROVIDER: str = Field(default=DEFAULT_LLM_PROVIDER)
     LLM_MODEL: str = Field(default=DEFAULT_LLM_MODEL)
     OPENAI_API_KEY: Optional[str] = Field(default=None)
+    GOOGLE_API_KEY: Optional[str] = Field(default=None)
+    GEMINI_API_KEY: Optional[str] = Field(default=None)
     ANTHROPIC_API_KEY: Optional[str] = Field(default=None)
     HUGGINGFACEHUB_API_TOKEN: Optional[str] = Field(default=None)
     OLLAMA_BASE_URL: str = Field(default="http://localhost:11434")

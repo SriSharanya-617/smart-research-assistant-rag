@@ -1,13 +1,13 @@
 """
 Main Streamlit UI Orchestrator for the Smart Research Assistant.
-Integrates the complete production-grade RAG pipeline (loaders, splitters, vector stores, retrievers, and LLMs).
+Integrates the complete production-grade RAG pipeline and a dedicated Evaluation & Benchmarking dashboard.
 """
 
 import os
 import time
 import datetime
-import tempfile
-import shutil
+import json
+import pandas as pd
 import streamlit as st
 
 # Backend Imports
@@ -22,6 +22,10 @@ from src.vectorstores.manager import VectorStoreFactory
 from src.retrieval.pipeline import RetrievalPipeline
 from src.llm.factory import LLMFactory
 from src.llm.rag_pipeline import RAGPipeline
+
+# Evaluation Imports
+from src.evaluation.runner import EvaluationRunner
+from src.evaluation.reports import ReportGenerator
 
 # Initialize Logger and Config
 logger = setup_logger("streamlit_app")
@@ -97,6 +101,9 @@ if "chat_history" not in st.session_state:
 if "last_rag_metadata" not in st.session_state:
     st.session_state.last_rag_metadata = None
 
+if "last_eval_results" not in st.session_state:
+    st.session_state.last_eval_results = None
+
 # Temporary directory for file uploads
 UPLOAD_DIR = os.path.join("data", "tmp_uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -137,15 +144,22 @@ retrieval_strategy = st.sidebar.selectbox("Retrieval Strategy", ["semantic", "mm
 top_k = st.sidebar.slider("Top-K Chunks", min_value=1, max_value=10, value=4, step=1)
 score_threshold = st.sidebar.slider("Distance Threshold (L2)", min_value=0.0, max_value=3.0, value=1.5, step=0.1)
 
-# API Keys management
-st.sidebar.subheader("6. API Authorization Keys")
-google_key = st.sidebar.text_input("Gemini API Key", value=os.environ.get("GOOGLE_API_KEY") or "", type="password")
-openai_key = st.sidebar.text_input("OpenAI API Key", value=os.environ.get("OPENAI_API_KEY") or "", type="password")
-
-if google_key:
-    os.environ["GOOGLE_API_KEY"] = google_key
-if openai_key:
-    os.environ["OPENAI_API_KEY"] = openai_key
+# API Key Verification checks
+api_key_error_msg = None
+if llm_provider == "gemini":
+    if not (config.GOOGLE_API_KEY or config.GEMINI_API_KEY or os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")):
+        api_key_error_msg = (
+            "Google API key not found. "
+            "Please create a `.env` file in the project root and add:\n"
+            "```env\nGOOGLE_API_KEY=your_api_key\n```"
+        )
+elif llm_provider == "openai":
+    if not (config.OPENAI_API_KEY or os.environ.get("OPENAI_API_KEY")):
+        api_key_error_msg = (
+            "OpenAI API key not found. "
+            "Please create a `.env` file in the project root and add:\n"
+            "```env\nOPENAI_API_KEY=your_api_key\n```"
+        )
 
 # 4. Initialize Core Backend Components
 @st.cache_resource
@@ -191,8 +205,11 @@ def get_backend_resources(
         logger.error(f"Subsystems load error: {ex}")
         return None, None, None, None
 
+# If key is missing, default to mock provider internally to prevent loading crashes
+actual_llm_provider = "mock" if api_key_error_msg else llm_provider
+
 embeddings_inst, vector_store_inst, retriever_pipeline_inst, rag_pipeline_inst = get_backend_resources(
-    embedding_provider, embedding_model, vector_store_type, llm_provider, llm_model, temperature
+    embedding_provider, embedding_model, vector_store_type, actual_llm_provider, llm_model, temperature
 )
 
 # 5. Document Ingestion sidebar UI
@@ -325,6 +342,9 @@ if vector_store_inst and vector_store_inst.db is not None:
 # 7. Main Dashboard layout
 st.title("🤖 Smart Research Assistant - Knowledge System")
 
+if api_key_error_msg:
+    st.error(api_key_error_msg)
+
 # Top stats KPI Cards
 col1, col2, col3, col4 = st.columns(4)
 with col1:
@@ -356,121 +376,321 @@ with col4:
 
 st.write("") # Spacer
 
-# Main Area split: left col is Chat, right col is Document list + Retrieval Inspector
-col_left, col_right = st.columns([0.6, 0.4])
+# Tabs split: Chatroom Console and System Benchmarking
+tab_chat, tab_eval = st.tabs(["💬 Q&A Chatroom", "📊 RAG Benchmark Evaluations"])
 
-with col_left:
-    st.subheader("💬 Q&A Chatroom Console")
-    
-    # Render chat bubble history
-    for msg in st.session_state.chat_history:
-        with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
-            
-    # Capture user input
-    user_query = st.chat_input("Ask a question about the indexed context files...")
-    
-    if user_query:
-        # Display user bubble instantly
-        with st.chat_message("user"):
-            st.markdown(user_query)
-        st.session_state.chat_history.append({"role": "user", "content": user_query})
+with tab_chat:
+    # Main Area split: left col is Chat, right col is Document list + Retrieval Inspector
+    col_left, col_right = st.columns([0.6, 0.4])
+
+    with col_left:
+        st.subheader("💬 Q&A Chatroom Console")
         
-        # Generate Answer
-        if rag_pipeline_inst:
-            with st.chat_message("assistant"):
-                with st.spinner("Retrieving facts and synthesizing response..."):
-                    try:
-                        # Call RAG Pipeline
-                        response = rag_pipeline_inst.answer_question(
-                            query=user_query,
-                            limit=top_k,
-                            strategy=retrieval_strategy,
-                            score_threshold=score_threshold
-                        )
-                        st.markdown(response)
-                        
-                        st.session_state.chat_history.append({"role": "assistant", "content": response})
-                        st.session_state.last_rag_metadata = rag_pipeline_inst.get_last_run_metadata()
-                        
-                        time.sleep(0.1)
-                        st.rerun()
-                    except Exception as ex:
-                        st.error(f"Generation failure: {ex}")
-                        logger.error(f"RAG Pipeline execution failed: {ex}")
-        else:
-            st.error("RAG pipeline is not loaded. Configure settings in the sidebar.")
-
-with col_right:
-    # 1. Document Management Panel
-    st.subheader("📚 Managed Index Documents")
-    if not unique_documents:
-        st.info("No documents are currently indexed in the vector database.")
-    else:
-        for fname, info in unique_documents.items():
-            col_doc, col_del = st.columns([0.8, 0.2])
-            with col_doc:
-                st.markdown(f"📄 **{fname}** ({info['chunks']} chunks | `{info['type']}`) ")
-            with col_del:
-                # Delete Document
-                if st.button("🗑️", key=f"del_{fname}"):
-                    try:
-                        with st.spinner("Deleting document from index..."):
-                            # Delete by checking chunk filename matches
-                            if vector_store_type == "chroma":
-                                # Query collection keys
-                                all_items = vector_store_inst.db._collection.get(include=["metadatas"])
-                                metadatas = all_items.get("metadatas") or []
-                                ids = all_items.get("ids") or []
-                                chunk_ids_to_del = [
-                                    ids[i] for i, m in enumerate(metadatas)
-                                    if m.get("filename") == fname or m.get("source") == fname
-                                ]
-                            else:
-                                chunk_ids_to_del = [
-                                    cid for cid, doc in vector_store_inst.db.docstore._dict.items()
-                                    if doc.metadata.get("filename") == fname or doc.metadata.get("source") == fname
-                                ]
-                                
-                            if chunk_ids_to_del:
-                                vector_store_inst.remove_documents(chunk_ids_to_del)
-                                if rag_pipeline_inst:
-                                    rag_pipeline_inst.retrieval_pipeline.invalidate_cache()
-                                st.success(f"Deleted {fname} successfully!")
-                                time.sleep(0.5)
-                                st.rerun()
-                            else:
-                                st.error("Could not find matching document IDs in index.")
-                    except Exception as ex:
-                        st.error(f"Deletion failed: {ex}")
-
-    st.write("") # Spacer
-
-    # 2. Retrieval Inspector Dashboard
-    st.subheader("🔍 Diagnostics & Retrieval Inspector")
-    inspector = st.session_state.last_rag_metadata.get("retrieval_inspector") if st.session_state.last_rag_metadata else None
-    
-    with st.expander("Expand Retrieval Metrics Inspector Console", expanded=True):
-        if not inspector:
-            st.info("Ask a question in the chat to view retrieval analytics details.")
-        else:
-            st.markdown(f"**Original Query:** `{inspector.get('original_query')}`")
-            st.markdown(f"**Processed Query:** `{inspector.get('processed_query')}`")
-            st.markdown(f"**Query Complexity (Intent):** `{inspector.get('query_complexity')}`")
-            st.markdown(f"**Retrieval Strategy:** `{inspector.get('retrieval_strategy')}`")
-            st.markdown(f"**Cache Hit:** `{inspector.get('cache_hit')}`")
-            st.markdown(f"**Latency:** `{inspector.get('latency_seconds', 0.0):.4f} seconds`")
-            st.markdown(f"**Confidence Est:** `{inspector.get('confidence_estimate')}`")
-            
-            st.markdown("---")
-            st.markdown("**Retrieved Chunk Extracts:**")
-            
-            chunks = inspector.get("retrieved_chunks") or []
-            for i, chunk in enumerate(chunks):
-                meta = chunk.get("metadata") or {}
-                source_lbl = meta.get("filename") or meta.get("source") or "unknown"
-                page_lbl = f", Pg. {meta.get('page_number')}" if meta.get("page_number") else ""
+        # Render chat bubble history
+        for msg in st.session_state.chat_history:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
                 
-                st.markdown(f"📌 **Chunk #{i+1}** (Source: *{source_lbl}{page_lbl}* | Score: `{chunk.get('score', 0.0):.4f}`)")
-                st.code(chunk.get("content"), language="text")
-                st.caption(f"*Selection Explanation:* {chunk.get('explanation')}")
+        # Capture user input
+        user_query = st.chat_input("Ask a question about the indexed context files...")
+        
+        if user_query:
+            # Display user bubble instantly
+            with st.chat_message("user"):
+                st.markdown(user_query)
+            st.session_state.chat_history.append({"role": "user", "content": user_query})
+            
+            # Generate Answer
+            if api_key_error_msg:
+                with st.chat_message("assistant"):
+                    st.error(api_key_error_msg)
+                st.session_state.chat_history.append({"role": "assistant", "content": f"⚠️ Error: {api_key_error_msg}"})
+            elif rag_pipeline_inst:
+                with st.chat_message("assistant"):
+                    with st.spinner("Retrieving facts and synthesizing response..."):
+                        try:
+                            # Call RAG Pipeline
+                            response = rag_pipeline_inst.answer_question(
+                                query=user_query,
+                                limit=top_k,
+                                strategy=retrieval_strategy,
+                                score_threshold=score_threshold
+                            )
+                            st.markdown(response)
+                            
+                            st.session_state.chat_history.append({"role": "assistant", "content": response})
+                            st.session_state.last_rag_metadata = rag_pipeline_inst.get_last_run_metadata()
+                            
+                            time.sleep(0.1)
+                            st.rerun()
+                        except Exception as ex:
+                            st.error(f"Generation failure: {ex}")
+                            logger.error(f"RAG Pipeline execution failed: {ex}")
+            else:
+                st.error("RAG pipeline is not loaded. Configure settings in the sidebar.")
+
+    with col_right:
+        # 1. Document Management Panel
+        st.subheader("📚 Managed Index Documents")
+        if not unique_documents:
+            st.info("No documents are currently indexed in the vector database.")
+        else:
+            for fname, info in unique_documents.items():
+                col_doc, col_del = st.columns([0.8, 0.2])
+                with col_doc:
+                    st.markdown(f"📄 **{fname}** ({info['chunks']} chunks | `{info['type']}`) ")
+                with col_del:
+                    # Delete Document
+                    if st.button("🗑️", key=f"del_{fname}"):
+                        try:
+                            with st.spinner("Deleting document from index..."):
+                                # Delete by checking chunk filename matches
+                                if vector_store_type == "chroma":
+                                    # Query collection keys
+                                    all_items = vector_store_inst.db._collection.get(include=["metadatas"])
+                                    metadatas = all_items.get("metadatas") or []
+                                    ids = all_items.get("ids") or []
+                                    chunk_ids_to_del = [
+                                        ids[i] for i, m in enumerate(metadatas)
+                                        if m.get("filename") == fname or m.get("source") == fname
+                                    ]
+                                else:
+                                    chunk_ids_to_del = [
+                                        cid for cid, doc in vector_store_inst.db.docstore._dict.items()
+                                        if doc.metadata.get("filename") == fname or doc.metadata.get("source") == fname
+                                    ]
+                                    
+                                if chunk_ids_to_del:
+                                    vector_store_inst.remove_documents(chunk_ids_to_del)
+                                    if rag_pipeline_inst:
+                                        rag_pipeline_inst.retrieval_pipeline.invalidate_cache()
+                                    st.success(f"Deleted {fname} successfully!")
+                                    time.sleep(0.5)
+                                    st.rerun()
+                                else:
+                                    st.error("Could not find matching document IDs in index.")
+                        except Exception as ex:
+                            st.error(f"Deletion failed: {ex}")
+
+        st.write("") # Spacer
+
+        # 2. Retrieval Inspector Dashboard
+        st.subheader("🔍 Diagnostics & Retrieval Inspector")
+        inspector = st.session_state.last_rag_metadata.get("retrieval_inspector") if st.session_state.last_rag_metadata else None
+        
+        with st.expander("Expand Retrieval Metrics Inspector Console", expanded=True):
+            if not inspector:
+                st.info("Ask a question in the chat to view retrieval analytics details.")
+            else:
+                st.markdown(f"**Original Query:** `{inspector.get('original_query')}`")
+                st.markdown(f"**Processed Query:** `{inspector.get('processed_query')}`")
+                st.markdown(f"**Query Complexity (Intent):** `{inspector.get('query_complexity')}`")
+                st.markdown(f"**Retrieval Strategy:** `{inspector.get('retrieval_strategy')}`")
+                st.markdown(f"**Cache Hit:** `{inspector.get('cache_hit')}`")
+                st.markdown(f"**Latency:** `{inspector.get('latency_seconds', 0.0):.4f} seconds`")
+                st.markdown(f"**Confidence Est:** `{inspector.get('confidence_estimate')}`")
+                
+                st.markdown("---")
+                st.markdown("**Retrieved Chunk Extracts:**")
+                
+                chunks = inspector.get("retrieved_chunks") or []
+                for i, chunk in enumerate(chunks):
+                    meta = chunk.get("metadata") or {}
+                    source_lbl = meta.get("filename") or meta.get("source") or "unknown"
+                    page_lbl = f", Pg. {meta.get('page_number')}" if meta.get("page_number") else ""
+                    
+                    st.markdown(f"📌 **Chunk #{i+1}** (Source: *{source_lbl}{page_lbl}* | Score: `{chunk.get('score', 0.0):.4f}`)")
+                    st.code(chunk.get("content"), language="text")
+                    st.caption(f"*Selection Explanation:* {chunk.get('explanation')}")
+
+with tab_eval:
+    st.subheader("📊 RAG Pipeline Validation & Benchmarking Console")
+    
+    col_bench_left, col_bench_right = st.columns([0.45, 0.55])
+    
+    with col_bench_left:
+        st.markdown("#### 📥 Import Test Dataset")
+        uploaded_dataset = st.file_uploader("Upload dataset file (CSV, JSON, TXT)", type=["csv", "json", "txt"], key="bench_upload")
+        
+        # Manual query text area fallback
+        st.markdown("**OR Enter manual query questions list (one per line):**")
+        manual_queries_text = st.text_area("Question list input", placeholder="What is RAG?\nCompare FAISS and Chroma.", height=120)
+        
+        run_bench_btn = st.button("⚡ Run Evaluation Benchmark", use_container_width=True)
+        
+        # Ingestion parsing helper
+        dataset_records = []
+        dataset_name = "manual_queries"
+        
+        if run_bench_btn:
+            if api_key_error_msg:
+                st.error(api_key_error_msg)
+            elif not rag_pipeline_inst:
+                st.error("RAG pipeline is not loaded. Configure settings in the sidebar.")
+            else:
+                try:
+                    runner = EvaluationRunner(rag_pipeline_inst)
+                    
+                    if uploaded_dataset:
+                        dataset_name = uploaded_dataset.name
+                        # Save to temp path to parse
+                        temp_ds_path = os.path.join(UPLOAD_DIR, uploaded_dataset.name)
+                        with open(temp_ds_path, "wb") as f:
+                            f.write(uploaded_dataset.read())
+                        
+                        dataset_records = runner.load_dataset_from_file(temp_ds_path)
+                        try:
+                            os.remove(temp_ds_path)
+                        except:
+                            pass
+                    elif manual_queries_text.strip():
+                        # Parse manual queries
+                        for line in manual_queries_text.split("\n"):
+                            q = line.strip()
+                            if q:
+                                dataset_records.append({
+                                    "question": q,
+                                    "expected_answer": "",
+                                    "source": ""
+                                })
+                                
+                    if not dataset_records:
+                        st.error("Test dataset is empty. Provide queries first.")
+                    else:
+                        with st.spinner(f"Evaluating {len(dataset_records)} queries against RAG pipeline..."):
+                            bench_progress = st.progress(0)
+                            # Custom query runner hooks for logging details and updates
+                            # To simulate progress callbacks, we call it in slices
+                            results = runner.run_evaluation(dataset_records, dataset_name)
+                            st.session_state.last_eval_results = results
+                            st.success("Benchmark execution complete!")
+                            time.sleep(0.5)
+                            st.rerun()
+                except Exception as ex:
+                    st.error(f"Benchmark execution failed: {ex}")
+                    logger.error(f"Benchmark run exception: {ex}")
+
+    with col_bench_right:
+        st.markdown("#### 🕒 Evaluation History Runs Logs")
+        history = EvaluationRunner.get_evaluation_history()
+        if not history:
+            st.info("No historical evaluation run details recorded.")
+        else:
+            df_hist = pd.DataFrame(history)
+            # Re-sort descending by timestamp
+            df_hist = df_hist.sort_values(by="timestamp", ascending=False)
+            st.dataframe(
+                df_hist[[
+                    "timestamp", "dataset_name", "number_of_queries", 
+                    "average_latency", "retrieval_success_rate", 
+                    "quality_faithfulness", "quality_relevance"
+                ]],
+                use_container_width=True
+            )
+
+    st.markdown("---")
+    
+    # 8. Display Results Summary if benchmark was run
+    if st.session_state.last_eval_results:
+        results = st.session_state.last_eval_results
+        summary = results["summary"]
+        quality = summary["quality"]
+        conf = summary["confidence_distribution"]
+        
+        st.markdown(f"### 📈 Summary Report: `{results['dataset_name']}` ({results['timestamp']})")
+        
+        # Operational summary metric cards
+        op_col1, op_col2, op_col3, op_col4 = st.columns(4)
+        with op_col1:
+            st.metric("Retrieval Success Rate", f"{summary['retrieval_success_rate']:.1f}%")
+        with op_col2:
+            st.metric("Average E2E Latency", f"{summary['average_end_to_end_latency']:.3f}s")
+        with op_col3:
+            st.metric("Cache Hit Rate", f"{summary['cache_hit_percentage']:.1f}%")
+        with op_col4:
+            st.metric("Average Similarity", f"{summary['average_similarity_score']:.4f}")
+
+        # Quality metrics cards
+        qual_col1, qual_col2, qual_col3, qual_col4 = st.columns(4)
+        with qual_col1:
+            st.metric("Faithfulness (Proxy)", f"{quality['faithfulness'] * 100:.1f}%")
+        with qual_col2:
+            st.metric("Answer Relevancy (Proxy)", f"{quality['answer_relevance'] * 100:.1f}%")
+        with qual_col3:
+            st.metric("Context Precision", f"{quality['context_precision'] * 100:.1f}%")
+        with qual_col4:
+            st.metric("Context Recall", f"{quality['context_recall'] * 100:.1f}%")
+
+        # 9. Charts Visualization
+        st.markdown("#### 📊 Metric Charts Analysis")
+        chart_col1, chart_col2 = st.columns(2)
+        
+        # Build pandas DataFrames to plot charts
+        queries_df = pd.DataFrame([
+            {
+                "question": q["question"],
+                "latency": q.get("metadata", {}).get("latency_seconds", 0.0),
+                "faithfulness": q.get("quality_scores", {}).get("faithfulness", 0.0),
+                "relevance": q.get("quality_scores", {}).get("answer_relevance", 0.0),
+                "similarity": q.get("metadata", {}).get("retrieval_inspector", {}).get("statistics", {}).get("average_score", 0.0) if q.get("metadata") else 0.0
+            }
+            for q in results["queries"]
+        ])
+        
+        with chart_col1:
+            # Latency Trend
+            st.markdown("**Latency Trend Across Query sequence:**")
+            st.line_chart(queries_df["latency"])
+            
+            # Confidence counts bar chart
+            st.markdown("**Retrieval Confidence Distribution:**")
+            conf_df = pd.DataFrame(list(conf.items()), columns=["Confidence Class", "Count"])
+            st.bar_chart(conf_df.set_index("Confidence Class"))
+            
+        with chart_col2:
+            # Average Similarity Histogram
+            st.markdown("**Similarity Scores Distribution:**")
+            st.bar_chart(queries_df["similarity"])
+            
+            # Retrieval Success Pie Chart (as a bar chart since st.pie_chart is not standard in older streamlit)
+            st.markdown("**Operational Metrics Comparison:**")
+            metrics_comparison_df = pd.DataFrame({
+                "Percentage (%)": [
+                    summary['retrieval_success_rate'],
+                    summary['cache_hit_percentage'],
+                    summary['llm_failure_percentage']
+                ]
+            }, index=["Retrieval Success", "Cache Hit", "LLM Failures"])
+            st.bar_chart(metrics_comparison_df)
+
+        # 10. Exporter Download actions
+        st.markdown("#### 💾 Export Benchmark Reports")
+        
+        # Compile reports in-memory
+        report_md = ReportGenerator.generate_markdown_report(results)
+        report_csv = ReportGenerator.generate_csv_report(results)
+        report_json = json.dumps(results, indent=2)
+        report_html = ReportGenerator.generate_html_report(results)
+        
+        dl_col1, dl_col2, dl_col3, dl_col4 = st.columns(4)
+        with dl_col1:
+            st.download_button("Download Markdown (.md)", data=report_md, file_name=f"rag_eval_{results['dataset_name']}.md", mime="text/markdown")
+        with dl_col2:
+            st.download_button("Download CSV Spreadsheet", data=report_csv, file_name=f"rag_eval_{results['dataset_name']}.csv", mime="text/csv")
+        with dl_col3:
+            st.download_button("Download JSON Data", data=report_json, file_name=f"rag_eval_{results['dataset_name']}.json", mime="application/json")
+        with dl_col4:
+            st.download_button("Download HTML Dashboard", data=report_html, file_name=f"rag_eval_{results['dataset_name']}.html", mime="text/html")
+
+        st.markdown("---")
+        
+        # Expandable query detail list
+        with st.expander("🔍 View Detailed Query Benchmarking Runs Log", expanded=False):
+            for i, q in enumerate(results["queries"]):
+                st.markdown(f"**Query #{i+1}:** *\"{q['question']}\"*")
+                if "error" in q:
+                    st.error(f"Exception: {q['error']}")
+                else:
+                    st.markdown(f"- **Answer:** {q['generated_answer']}")
+                    st.markdown(f"- **Expected:** {q['expected_answer'] or 'N/A'}")
+                    st.markdown(f"- **Heuristic Groundedness Score:** `{q['quality_scores']['faithfulness']:.2f}`")

@@ -1696,3 +1696,1005 @@ Invalid username or password.
 2026-07-18 20:31:55,357 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-10\\test_invalid_vector_values0\\invalid_vals_faiss')
 2026-07-18 20:31:55,360 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
 2026-07-18 20:31:55,362 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 20:45:37,180 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 20:45:37,184 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 20:45:37,195 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 20:45:37,845 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 20:47:27,174 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 20:47:27,204 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 20:47:27,212 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 20:47:29,625 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 20:47:29,674 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 20:47:29,686 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 20:47:29,727 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 20:47:29,736 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 20:47:29,752 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 20:47:29,777 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 20:47:29,807 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 20:47:29,818 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 20:47:29,827 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 20:47:29,837 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 20:47:29,841 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 20:47:29,841 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 20:47:29,841 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 20:47:29,841 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 20:47:30,598 - embedding_factory - INFO - Creating new embedding provider instance for key: ('huggingface', 'BAAI/bge-small-en-v1.5')
+2026-07-18 20:47:30,600 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 20:47:30,602 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\Documents\\smart-research-assistant-rag\\data\\vectorstore')
+2026-07-18 20:47:30,604 - llm_factory - INFO - Creating new LLM provider instance for key: ('gemini', 'gemini-1.5-flash')
+2026-07-18 20:55:54,567 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 20:55:54,634 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 20:55:54,637 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 20:55:54,751 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 20:56:23,572 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 20:56:23,574 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 20:56:23,610 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 20:56:23,617 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 20:56:23,623 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 20:56:23,828 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 20:56:23,835 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 20:56:23,837 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 20:56:23,851 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 20:56:23,855 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 20:56:23,862 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 20:56:23,865 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 20:56:23,869 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 20:56:23,876 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 20:56:23,877 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 20:56:23,879 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 20:56:23,916 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:56:23,948 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:56:23,989 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:56:23,991 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 20:56:24,003 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:56:24,004 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 20:56:24,004 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 20:56:24,005 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 20:56:24,006 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 20:56:44,536 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 20:56:44,639 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 20:56:44,643 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 20:56:44,897 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 20:57:08,100 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 20:57:08,101 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 20:57:08,110 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 20:57:08,114 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 20:57:08,117 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 20:57:08,224 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 20:57:08,226 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 20:57:08,227 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 20:57:08,235 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 20:57:08,237 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 20:57:08,241 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 20:57:08,243 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 20:57:08,246 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 20:57:08,250 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 20:57:08,251 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 20:57:08,252 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 20:57:08,263 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:57:08,268 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:57:08,288 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:57:08,290 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 20:57:08,298 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:57:08,298 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 20:57:08,299 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 20:57:08,299 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 20:57:08,301 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 20:57:44,485 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 20:57:44,488 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 20:57:44,493 - mock_embeddings - INFO - Logger 'mock_embeddings' initialized at level INFO.
+2026-07-18 20:57:44,739 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 20:57:44,740 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 20:57:44,741 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 20:57:44,820 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 20:58:08,494 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 20:58:08,497 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 20:58:08,512 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 20:58:08,518 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 20:58:08,521 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 20:58:08,756 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 20:58:08,772 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 20:58:08,774 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 20:58:08,783 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 20:58:08,785 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 20:58:08,787 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 20:58:08,791 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 20:58:08,794 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 20:58:08,795 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 20:58:08,958 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 20:58:08,963 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 20:58:08,964 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 20:58:08,964 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:08,970 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 20:58:08,970 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-a')
+2026-07-18 20:58:08,971 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 20:58:08,971 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-b')
+2026-07-18 20:58:08,971 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 20:58:08,979 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 20:58:08,988 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 20:58:08,988 - sentence_transformer_provider - INFO - Initiating lazy load for model 'BAAI/bge-small-en-v1.5' on device 'cpu'.
+2026-07-18 20:58:08,989 - sentence_transformer_provider - INFO - Model loaded successfully in 0.000s. Vector dimension=384
+2026-07-18 20:58:08,989 - sentence_transformer_provider - INFO - Generating embeddings for 1 documents (batch size=32).
+2026-07-18 20:58:08,990 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.001s. Average time per document=0.0005s.
+2026-07-18 20:58:08,990 - sentence_transformer_provider - INFO - Generating embeddings for 2 documents (batch size=32).
+2026-07-18 20:58:08,991 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0002s.
+2026-07-18 20:58:08,997 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 20:58:08,998 - sentence_transformer_provider - INFO - Initiating lazy load for model 'invalid-namespace/non-existent-model' on device 'cpu'.
+2026-07-18 20:58:10,755 - sentence_transformer_provider - ERROR - Failed to load sentence-transformers model 'invalid-namespace/non-existent-model': 401 Client Error. (Request ID: Root=1-6a5b9b8a-0491d35d79f1172e65831cc5;000989e8-b73c-4171-b2d9-52622953ea84)
+
+Repository Not Found for url: https://huggingface.co/invalid-namespace/non-existent-model/resolve/main/modules.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+2026-07-18 20:58:10,766 - sentence_transformer_provider - WARNING - CUDA device was requested but PyTorch CUDA support is not available. Falling back to CPU.
+2026-07-18 20:58:10,776 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:58:10,786 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:58:10,820 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:58:10,823 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 20:58:10,834 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 20:58:10,835 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 20:58:10,835 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 20:58:10,836 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 20:58:10,838 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 20:58:10,853 - pdf_loader - INFO - Opening PDF file: test_file.pdf
+2026-07-18 20:58:10,855 - pdf_loader - INFO - Successfully processed 2 text-containing pages from test_file.pdf
+2026-07-18 20:58:10,864 - pdf_loader - INFO - Opening PDF file: scanned.pdf
+2026-07-18 20:58:10,867 - pdf_loader - ERROR - Scanned or empty PDF: no text extracted from scanned.pdf
+2026-07-18 20:58:10,879 - pdf_loader - INFO - Opening PDF file: encrypted.pdf
+2026-07-18 20:58:10,880 - pdf_loader - ERROR - Corrupted or empty PDF: encrypted.pdf has 0 pages.
+2026-07-18 20:58:10,883 - pdf_loader - ERROR - File size 26214400 exceeds limit of 20971520 bytes.
+2026-07-18 20:58:10,889 - txt_loader - INFO - Successfully loaded and preprocessed text document: utf8.txt
+2026-07-18 20:58:10,891 - txt_loader - INFO - Successfully loaded and preprocessed text document: bom.txt
+2026-07-18 20:58:10,894 - txt_loader - INFO - Successfully loaded and preprocessed text document: iso.txt
+2026-07-18 20:58:10,900 - txt_loader - ERROR - Unsupported text file encoding for: corrupted.txt
+2026-07-18 20:58:10,905 - web_loader - ERROR - URL validation failed for 'not-a-valid-url': URL is missing scheme (http/https) or netloc domain.
+2026-07-18 20:58:10,909 - web_loader - INFO - robots.txt check returned allowed=False for URL: https://example.com/blocked-page
+2026-07-18 20:58:10,910 - web_loader - ERROR - URL fetch blocked by robots.txt policy: https://example.com/blocked-page
+2026-07-18 20:58:10,914 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/page
+2026-07-18 20:58:10,914 - web_loader - INFO - Fetching URL (Attempt 1/1): https://example.com/page
+2026-07-18 20:58:10,915 - web_loader - WARNING - Connection timeout on attempt 1: Connection timed out
+2026-07-18 20:58:10,919 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/article
+2026-07-18 20:58:10,920 - web_loader - INFO - Fetching URL (Attempt 1/3): https://example.com/article
+2026-07-18 20:58:10,921 - web_loader - INFO - Parsing page HTML structure.
+2026-07-18 20:58:10,926 - web_loader - INFO - Successfully scraped and cleaned page content: Test Article
+2026-07-18 20:58:10,931 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 20:58:10,932 - document_splitter - INFO - Text splitting completed. Documents=1 -> Chunks=6. Average chunk length=172.3 characters.
+2026-07-18 20:58:10,935 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 20:58:10,935 - document_splitter - WARNING - Text splitting cancelled by caller.
+2026-07-18 20:58:10,940 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-4')
+2026-07-18 20:58:10,943 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 20:58:10,945 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 20:58:10,960 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 20:58:10,961 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 20:58:10,961 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,099 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_rag_pipeline_success0\rag_test_faiss
+2026-07-18 20:58:11,100 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.137s.
+2026-07-18 20:58:11,103 - faiss_vector_store - INFO - Querying FAISS: 'What is RAG?' (k=4, filter=None)
+2026-07-18 20:58:11,105 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 20:58:11,105 - retrieval_cache - INFO - Cached results for query 'What is RAG?...' (strategy=semantic).
+2026-07-18 20:58:11,106 - retrieval_pipeline - INFO - Retrieval complete. Intent='definition request', Confidence='High', Latency=0.004s, Cache=False.
+2026-07-18 20:58:11,106 - rag_pipeline - INFO - RAG query completed successfully in 0.004s. Answer size=39 chars.
+2026-07-18 20:58:11,112 - rag_pipeline - INFO - Retrieval returned zero documents. Returning safe fallback answer.
+2026-07-18 20:58:11,117 - llm_factory - INFO - Clearing LLM providers cache.
+2026-07-18 20:58:11,118 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-1')
+2026-07-18 20:58:11,118 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-1')
+2026-07-18 20:58:11,118 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-2')
+2026-07-18 20:58:11,151 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,152 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,155 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_pipeline_semantic_search_0\retrieval_test_faiss
+2026-07-18 20:58:11,155 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 20:58:11,157 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 20:58:11,158 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 20:58:11,158 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 20:58:11,159 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 20:58:11,159 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'pdf'})
+2026-07-18 20:58:11,159 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 20:58:11,160 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 20:58:11,160 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,160 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'docx'})
+2026-07-18 20:58:11,160 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 0 matches.
+2026-07-18 20:58:11,161 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 20:58:11,161 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,166 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,167 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,170 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_pipeline_score_threshold0\retrieval_test_faiss
+2026-07-18 20:58:11,171 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 20:58:11,172 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 20:58:11,173 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 20:58:11,173 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 20:58:11,173 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,179 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,179 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,182 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_cache_hits_misses_and_inv0\retrieval_test_faiss
+2026-07-18 20:58:11,182 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 20:58:11,183 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 20:58:11,183 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 20:58:11,183 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 20:58:11,184 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,184 - retrieval_cache - INFO - Cache Hit for query 'RAG pipeline...'. Retained 2 documents.
+2026-07-18 20:58:11,184 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.000s, Cache=True.
+2026-07-18 20:58:11,184 - retrieval_cache - INFO - Invalidating all retrieval cache entries due to index update.
+2026-07-18 20:58:11,184 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 20:58:11,184 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 20:58:11,185 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 20:58:11,185 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,189 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,190 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,193 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_cache_ttl_expiration0\retrieval_test_faiss
+2026-07-18 20:58:11,194 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 20:58:11,196 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 20:58:11,199 - faiss_vector_store - INFO - Query completed in 0.003s. Fetched 1 matches.
+2026-07-18 20:58:11,199 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 20:58:11,200 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.004s, Cache=False.
+2026-07-18 20:58:11,200 - retrieval_cache - INFO - Cache expired for query 'caching test...' (Age: 0.0s). Evicting.
+2026-07-18 20:58:11,200 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 20:58:11,200 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 20:58:11,201 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 20:58:11,201 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,229 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,230 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,233 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_retrieval_inspector_outpu0\retrieval_test_faiss
+2026-07-18 20:58:11,233 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 20:58:11,235 - faiss_vector_store - INFO - Querying FAISS: 'RAG query' (k=1, filter={'document_type': 'txt'})
+2026-07-18 20:58:11,236 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 20:58:11,236 - retrieval_cache - INFO - Cached results for query 'RAG query...' (strategy=semantic).
+2026-07-18 20:58:11,236 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 20:58:11,242 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,244 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-13\\test_vector_store_crud_and_sea0\\test_faiss_index')
+2026-07-18 20:58:11,245 - faiss_vector_store - WARNING - Query run on uninitialized/empty FAISS index.
+2026-07-18 20:58:11,245 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:11,247 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 20:58:11,248 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 20:58:11,248 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=1, filter=None)
+2026-07-18 20:58:11,248 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 20:58:11,249 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 20:58:11,249 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 20:58:11,249 - faiss_vector_store - INFO - Updating 1 documents in FAISS.
+2026-07-18 20:58:11,249 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 20:58:11,258 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 20:58:11,258 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 20:58:11,259 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 20:58:11,261 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 20:58:11,262 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.002s.
+2026-07-18 20:58:11,262 - faiss_vector_store - INFO - FAISS document updates committed.
+2026-07-18 20:58:11,262 - faiss_vector_store - INFO - Querying FAISS: 'vector embeddings' (k=2, filter=None)
+2026-07-18 20:58:11,262 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 20:58:11,262 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 20:58:11,265 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 20:58:11,265 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 20:58:11,271 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:11,272 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-13\\test_vector_store_crud_and_sea1\\test_chroma_index')
+2026-07-18 20:58:11,272 - chroma_vector_store - WARNING - Query run on uninitialized/empty Chroma database.
+2026-07-18 20:58:11,272 - chroma_vector_store - INFO - Preparing to insert 2 documents to Chroma.
+2026-07-18 20:58:13,184 - chroma_vector_store - INFO - Successfully inserted 2 vectors in 1.911s.
+2026-07-18 20:58:13,191 - chroma_vector_store - INFO - Querying Chroma: 'vector databases' (k=1, filter=None)
+2026-07-18 20:58:13,196 - chroma_vector_store - INFO - Query completed in 0.004s. Fetched 1 matches.
+2026-07-18 20:58:13,196 - chroma_vector_store - INFO - Querying Chroma: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 20:58:13,202 - chroma_vector_store - INFO - Query completed in 0.005s. Fetched 1 matches.
+2026-07-18 20:58:13,202 - chroma_vector_store - INFO - Updating 1 documents in Chroma.
+2026-07-18 20:58:13,219 - chroma_vector_store - INFO - Chroma document updates committed.
+2026-07-18 20:58:13,220 - chroma_vector_store - INFO - Querying Chroma: 'vector embeddings' (k=2, filter=None)
+2026-07-18 20:58:13,224 - chroma_vector_store - INFO - Query completed in 0.004s. Fetched 2 matches.
+2026-07-18 20:58:13,224 - chroma_vector_store - INFO - Removing 1 documents from Chroma.
+2026-07-18 20:58:13,239 - chroma_vector_store - INFO - Documents removed from Chroma collection.
+2026-07-18 20:58:13,248 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:13,249 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-13\\test_concurrent_reads0\\concurrent_faiss')
+2026-07-18 20:58:13,250 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 20:58:13,252 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_concurrent_reads0\concurrent_faiss
+2026-07-18 20:58:13,252 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 20:58:13,254 - faiss_vector_store - INFO - Querying FAISS: 'embeddings' (k=1, filter=None)
+2026-07-18 20:58:13,256 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 20:58:13,256 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=1, filter=None)
+2026-07-18 20:58:13,257 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 20:58:13,257 - faiss_vector_store - INFO - Querying FAISS: 'faiss' (k=1, filter=None)
+2026-07-18 20:58:13,259 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 20:58:13,258 - faiss_vector_store - INFO - Querying FAISS: 'chroma' (k=1, filter=None)
+2026-07-18 20:58:13,259 - faiss_vector_store - INFO - Querying FAISS: 'vectors' (k=1, filter=None)
+2026-07-18 20:58:13,260 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 20:58:13,261 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 20:58:13,270 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:13,272 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 20:58:13,279 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 20:58:13,280 - faiss_vector_store - WARNING - Auto-load failed on init: Could not load or deserialize FAISS database: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized. Index will be built on document insertion.
+2026-07-18 20:58:13,280 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 20:58:13,280 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 20:58:13,285 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:13,286 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-13\\test_dimension_mismatch_valida0\\mismatch_faiss')
+2026-07-18 20:58:13,287 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 20:58:13,289 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-13\test_dimension_mismatch_valida0\mismatch_faiss
+2026-07-18 20:58:13,289 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.002s.
+2026-07-18 20:58:13,290 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 20:58:13,294 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 20:58:13,295 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-13\\test_invalid_vector_values0\\invalid_vals_faiss')
+2026-07-18 20:58:13,296 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 20:58:13,296 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:05:46,209 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 21:05:46,212 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 21:05:46,213 - mock_embeddings - INFO - Logger 'mock_embeddings' initialized at level INFO.
+2026-07-18 21:05:46,451 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 21:05:46,452 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 21:05:46,454 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 21:05:46,558 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 21:06:09,294 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 21:06:09,296 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 21:06:09,303 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 21:06:09,306 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 21:06:09,310 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 21:06:09,520 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 21:06:09,535 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 21:06:09,540 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 21:06:09,549 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 21:06:09,552 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 21:06:09,559 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 21:06:09,565 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 21:06:09,567 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 21:06:09,568 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 21:06:09,735 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 21:06:09,742 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 21:06:09,743 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:06:09,743 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:09,750 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 21:06:09,751 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-a')
+2026-07-18 21:06:09,751 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:06:09,751 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-b')
+2026-07-18 21:06:09,752 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:06:09,762 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:06:09,774 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:06:09,775 - sentence_transformer_provider - INFO - Initiating lazy load for model 'BAAI/bge-small-en-v1.5' on device 'cpu'.
+2026-07-18 21:06:09,776 - sentence_transformer_provider - INFO - Model loaded successfully in 0.000s. Vector dimension=384
+2026-07-18 21:06:09,776 - sentence_transformer_provider - INFO - Generating embeddings for 1 documents (batch size=32).
+2026-07-18 21:06:09,777 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.001s. Average time per document=0.0005s.
+2026-07-18 21:06:09,777 - sentence_transformer_provider - INFO - Generating embeddings for 2 documents (batch size=32).
+2026-07-18 21:06:09,777 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0002s.
+2026-07-18 21:06:09,783 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:06:09,784 - sentence_transformer_provider - INFO - Initiating lazy load for model 'invalid-namespace/non-existent-model' on device 'cpu'.
+2026-07-18 21:06:11,469 - sentence_transformer_provider - ERROR - Failed to load sentence-transformers model 'invalid-namespace/non-existent-model': 401 Client Error. (Request ID: Root=1-6a5b9d6b-783827ea05223c3021deceee;dbed6867-f818-40ae-bcff-79959b4b24f7)
+
+Repository Not Found for url: https://huggingface.co/invalid-namespace/non-existent-model/resolve/main/modules.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+2026-07-18 21:06:11,482 - sentence_transformer_provider - WARNING - CUDA device was requested but PyTorch CUDA support is not available. Falling back to CPU.
+2026-07-18 21:06:11,495 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:06:11,503 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:06:11,556 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:06:11,558 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 21:06:11,567 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:06:11,568 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 21:06:11,568 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 21:06:11,569 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 21:06:11,573 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 21:06:11,586 - pdf_loader - INFO - Opening PDF file: test_file.pdf
+2026-07-18 21:06:11,589 - pdf_loader - INFO - Successfully processed 2 text-containing pages from test_file.pdf
+2026-07-18 21:06:11,596 - pdf_loader - INFO - Opening PDF file: scanned.pdf
+2026-07-18 21:06:11,599 - pdf_loader - ERROR - Scanned or empty PDF: no text extracted from scanned.pdf
+2026-07-18 21:06:11,613 - pdf_loader - INFO - Opening PDF file: encrypted.pdf
+2026-07-18 21:06:11,614 - pdf_loader - ERROR - Corrupted or empty PDF: encrypted.pdf has 0 pages.
+2026-07-18 21:06:11,618 - pdf_loader - ERROR - File size 26214400 exceeds limit of 20971520 bytes.
+2026-07-18 21:06:11,625 - txt_loader - INFO - Successfully loaded and preprocessed text document: utf8.txt
+2026-07-18 21:06:11,628 - txt_loader - INFO - Successfully loaded and preprocessed text document: bom.txt
+2026-07-18 21:06:11,632 - txt_loader - INFO - Successfully loaded and preprocessed text document: iso.txt
+2026-07-18 21:06:11,639 - txt_loader - ERROR - Unsupported text file encoding for: corrupted.txt
+2026-07-18 21:06:11,641 - web_loader - ERROR - URL validation failed for 'not-a-valid-url': URL is missing scheme (http/https) or netloc domain.
+2026-07-18 21:06:11,645 - web_loader - INFO - robots.txt check returned allowed=False for URL: https://example.com/blocked-page
+2026-07-18 21:06:11,645 - web_loader - ERROR - URL fetch blocked by robots.txt policy: https://example.com/blocked-page
+2026-07-18 21:06:11,648 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/page
+2026-07-18 21:06:11,649 - web_loader - INFO - Fetching URL (Attempt 1/1): https://example.com/page
+2026-07-18 21:06:11,649 - web_loader - WARNING - Connection timeout on attempt 1: Connection timed out
+2026-07-18 21:06:11,654 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/article
+2026-07-18 21:06:11,655 - web_loader - INFO - Fetching URL (Attempt 1/3): https://example.com/article
+2026-07-18 21:06:11,656 - web_loader - INFO - Parsing page HTML structure.
+2026-07-18 21:06:11,662 - web_loader - INFO - Successfully scraped and cleaned page content: Test Article
+2026-07-18 21:06:11,666 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 21:06:11,667 - document_splitter - INFO - Text splitting completed. Documents=1 -> Chunks=6. Average chunk length=172.3 characters.
+2026-07-18 21:06:11,670 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 21:06:11,670 - document_splitter - WARNING - Text splitting cancelled by caller.
+2026-07-18 21:06:11,675 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-4')
+2026-07-18 21:06:11,678 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 21:06:11,682 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 21:06:11,699 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 21:06:11,699 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:06:11,700 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,763 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_rag_pipeline_success0\rag_test_faiss
+2026-07-18 21:06:11,764 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.064s.
+2026-07-18 21:06:11,767 - faiss_vector_store - INFO - Querying FAISS: 'What is RAG?' (k=4, filter=None)
+2026-07-18 21:06:11,768 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:06:11,768 - retrieval_cache - INFO - Cached results for query 'What is RAG?...' (strategy=semantic).
+2026-07-18 21:06:11,769 - retrieval_pipeline - INFO - Retrieval complete. Intent='definition request', Confidence='High', Latency=0.003s, Cache=False.
+2026-07-18 21:06:11,769 - rag_pipeline - INFO - RAG query completed successfully in 0.003s. Answer size=39 chars.
+2026-07-18 21:06:11,775 - rag_pipeline - INFO - Retrieval returned zero documents. Returning safe fallback answer.
+2026-07-18 21:06:11,780 - llm_factory - INFO - Clearing LLM providers cache.
+2026-07-18 21:06:11,781 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-1')
+2026-07-18 21:06:11,781 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-1')
+2026-07-18 21:06:11,781 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-2')
+2026-07-18 21:06:11,808 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,809 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,813 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_pipeline_semantic_search_0\retrieval_test_faiss
+2026-07-18 21:06:11,814 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.004s.
+2026-07-18 21:06:11,816 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 21:06:11,816 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:06:11,816 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 21:06:11,817 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,817 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'pdf'})
+2026-07-18 21:06:11,817 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 21:06:11,818 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 21:06:11,818 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,818 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'docx'})
+2026-07-18 21:06:11,818 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 0 matches.
+2026-07-18 21:06:11,818 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 21:06:11,819 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,825 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,826 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,829 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_pipeline_score_threshold0\retrieval_test_faiss
+2026-07-18 21:06:11,829 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:06:11,831 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 21:06:11,831 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 21:06:11,831 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 21:06:11,832 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,836 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,837 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,840 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_cache_hits_misses_and_inv0\retrieval_test_faiss
+2026-07-18 21:06:11,840 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:06:11,842 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 21:06:11,843 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:06:11,843 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 21:06:11,844 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,844 - retrieval_cache - INFO - Cache Hit for query 'RAG pipeline...'. Retained 2 documents.
+2026-07-18 21:06:11,844 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.000s, Cache=True.
+2026-07-18 21:06:11,845 - retrieval_cache - INFO - Invalidating all retrieval cache entries due to index update.
+2026-07-18 21:06:11,845 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 21:06:11,845 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 21:06:11,845 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 21:06:11,845 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,851 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,851 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,855 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_cache_ttl_expiration0\retrieval_test_faiss
+2026-07-18 21:06:11,855 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:06:11,857 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 21:06:11,859 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:06:11,859 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 21:06:11,859 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:06:11,859 - retrieval_cache - INFO - Cache expired for query 'caching test...' (Age: 0.0s). Evicting.
+2026-07-18 21:06:11,860 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 21:06:11,860 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 21:06:11,860 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 21:06:11,860 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,892 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,893 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,897 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_retrieval_inspector_outpu0\retrieval_test_faiss
+2026-07-18 21:06:11,897 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:06:11,899 - faiss_vector_store - INFO - Querying FAISS: 'RAG query' (k=1, filter={'document_type': 'txt'})
+2026-07-18 21:06:11,900 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 21:06:11,900 - retrieval_cache - INFO - Cached results for query 'RAG query...' (strategy=semantic).
+2026-07-18 21:06:11,900 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:06:11,907 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,909 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-14\\test_vector_store_crud_and_sea0\\test_faiss_index')
+2026-07-18 21:06:11,910 - faiss_vector_store - WARNING - Query run on uninitialized/empty FAISS index.
+2026-07-18 21:06:11,910 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:11,914 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:06:11,914 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:06:11,914 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=1, filter=None)
+2026-07-18 21:06:11,915 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 21:06:11,915 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 21:06:11,916 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 21:06:11,916 - faiss_vector_store - INFO - Updating 1 documents in FAISS.
+2026-07-18 21:06:11,916 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 21:06:11,920 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:06:11,920 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 21:06:11,920 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:06:11,922 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:06:11,923 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.002s.
+2026-07-18 21:06:11,923 - faiss_vector_store - INFO - FAISS document updates committed.
+2026-07-18 21:06:11,923 - faiss_vector_store - INFO - Querying FAISS: 'vector embeddings' (k=2, filter=None)
+2026-07-18 21:06:11,923 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 21:06:11,923 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 21:06:11,925 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:06:11,925 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 21:06:11,932 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:11,974 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-14\\test_vector_store_crud_and_sea1\\test_chroma_index')
+2026-07-18 21:06:11,976 - chroma_vector_store - WARNING - Query run on uninitialized/empty Chroma database.
+2026-07-18 21:06:11,979 - chroma_vector_store - INFO - Preparing to insert 2 documents to Chroma.
+2026-07-18 21:06:14,421 - chroma_vector_store - INFO - Successfully inserted 2 vectors in 2.441s.
+2026-07-18 21:06:14,435 - chroma_vector_store - INFO - Querying Chroma: 'vector databases' (k=1, filter=None)
+2026-07-18 21:06:14,447 - chroma_vector_store - INFO - Query completed in 0.010s. Fetched 1 matches.
+2026-07-18 21:06:14,448 - chroma_vector_store - INFO - Querying Chroma: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 21:06:14,456 - chroma_vector_store - INFO - Query completed in 0.007s. Fetched 1 matches.
+2026-07-18 21:06:14,457 - chroma_vector_store - INFO - Updating 1 documents in Chroma.
+2026-07-18 21:06:14,490 - chroma_vector_store - INFO - Chroma document updates committed.
+2026-07-18 21:06:14,491 - chroma_vector_store - INFO - Querying Chroma: 'vector embeddings' (k=2, filter=None)
+2026-07-18 21:06:14,502 - chroma_vector_store - INFO - Query completed in 0.007s. Fetched 2 matches.
+2026-07-18 21:06:14,502 - chroma_vector_store - INFO - Removing 1 documents from Chroma.
+2026-07-18 21:06:14,531 - chroma_vector_store - INFO - Documents removed from Chroma collection.
+2026-07-18 21:06:14,548 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:14,551 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-14\\test_concurrent_reads0\\concurrent_faiss')
+2026-07-18 21:06:14,552 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:06:14,559 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_concurrent_reads0\concurrent_faiss
+2026-07-18 21:06:14,560 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.007s.
+2026-07-18 21:06:14,564 - faiss_vector_store - INFO - Querying FAISS: 'embeddings' (k=1, filter=None)
+2026-07-18 21:06:14,567 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 21:06:14,568 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=1, filter=None)
+2026-07-18 21:06:14,569 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:06:14,570 - faiss_vector_store - INFO - Querying FAISS: 'faiss' (k=1, filter=None)
+2026-07-18 21:06:14,572 - faiss_vector_store - INFO - Querying FAISS: 'chroma' (k=1, filter=None)
+2026-07-18 21:06:14,574 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 21:06:14,575 - faiss_vector_store - INFO - Querying FAISS: 'vectors' (k=1, filter=None)
+2026-07-18 21:06:14,575 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:06:14,573 - faiss_vector_store - INFO - Query completed in 0.003s. Fetched 1 matches.
+2026-07-18 21:06:14,592 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:14,595 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 21:06:14,597 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 21:06:14,598 - faiss_vector_store - WARNING - Auto-load failed on init: Could not load or deserialize FAISS database: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized. Index will be built on document insertion.
+2026-07-18 21:06:14,598 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 21:06:14,599 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 21:06:14,606 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:14,608 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-14\\test_dimension_mismatch_valida0\\mismatch_faiss')
+2026-07-18 21:06:14,608 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:06:14,611 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-14\test_dimension_mismatch_valida0\mismatch_faiss
+2026-07-18 21:06:14,612 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.003s.
+2026-07-18 21:06:14,613 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:06:14,619 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:06:14,620 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-14\\test_invalid_vector_values0\\invalid_vals_faiss')
+2026-07-18 21:06:14,622 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:06:14,623 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:10,586 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 21:09:10,588 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 21:09:10,589 - mock_embeddings - INFO - Logger 'mock_embeddings' initialized at level INFO.
+2026-07-18 21:09:10,873 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 21:09:10,874 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 21:09:10,876 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 21:09:10,971 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 21:09:37,389 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 21:09:37,392 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 21:09:37,405 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 21:09:37,408 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 21:09:37,411 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 21:09:37,610 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 21:09:37,629 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 21:09:37,638 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 21:09:37,650 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 21:09:37,655 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 21:09:37,659 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 21:09:37,668 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 21:09:37,671 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 21:09:37,672 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 21:09:37,855 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 21:09:37,859 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 21:09:37,860 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:09:37,860 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:37,868 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 21:09:37,869 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-a')
+2026-07-18 21:09:37,869 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:09:37,869 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-b')
+2026-07-18 21:09:37,869 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:09:37,877 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:09:37,894 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:09:37,895 - sentence_transformer_provider - INFO - Initiating lazy load for model 'BAAI/bge-small-en-v1.5' on device 'cpu'.
+2026-07-18 21:09:37,896 - sentence_transformer_provider - INFO - Model loaded successfully in 0.000s. Vector dimension=384
+2026-07-18 21:09:37,896 - sentence_transformer_provider - INFO - Generating embeddings for 1 documents (batch size=32).
+2026-07-18 21:09:37,896 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0005s.
+2026-07-18 21:09:37,897 - sentence_transformer_provider - INFO - Generating embeddings for 2 documents (batch size=32).
+2026-07-18 21:09:37,897 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0002s.
+2026-07-18 21:09:37,903 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 21:09:37,904 - sentence_transformer_provider - INFO - Initiating lazy load for model 'invalid-namespace/non-existent-model' on device 'cpu'.
+2026-07-18 21:09:40,010 - sentence_transformer_provider - ERROR - Failed to load sentence-transformers model 'invalid-namespace/non-existent-model': 401 Client Error. (Request ID: Root=1-6a5b9e3b-491759ba15b79edd13b225a5;87ff02b3-a71e-45f5-9d5c-df039f778081)
+
+Repository Not Found for url: https://huggingface.co/invalid-namespace/non-existent-model/resolve/main/modules.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+2026-07-18 21:09:40,023 - sentence_transformer_provider - WARNING - CUDA device was requested but PyTorch CUDA support is not available. Falling back to CPU.
+2026-07-18 21:09:40,037 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:09:40,047 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:09:40,122 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:09:40,125 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 21:09:40,143 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 21:09:40,144 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 21:09:40,144 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 21:09:40,144 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 21:09:40,149 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 21:09:40,174 - pdf_loader - INFO - Opening PDF file: test_file.pdf
+2026-07-18 21:09:40,177 - pdf_loader - INFO - Successfully processed 2 text-containing pages from test_file.pdf
+2026-07-18 21:09:40,193 - pdf_loader - INFO - Opening PDF file: scanned.pdf
+2026-07-18 21:09:40,199 - pdf_loader - ERROR - Scanned or empty PDF: no text extracted from scanned.pdf
+2026-07-18 21:09:40,223 - pdf_loader - INFO - Opening PDF file: encrypted.pdf
+2026-07-18 21:09:40,225 - pdf_loader - ERROR - Corrupted or empty PDF: encrypted.pdf has 0 pages.
+2026-07-18 21:09:40,235 - pdf_loader - ERROR - File size 26214400 exceeds limit of 20971520 bytes.
+2026-07-18 21:09:40,249 - txt_loader - INFO - Successfully loaded and preprocessed text document: utf8.txt
+2026-07-18 21:09:40,256 - txt_loader - INFO - Successfully loaded and preprocessed text document: bom.txt
+2026-07-18 21:09:40,263 - txt_loader - INFO - Successfully loaded and preprocessed text document: iso.txt
+2026-07-18 21:09:40,280 - txt_loader - ERROR - Unsupported text file encoding for: corrupted.txt
+2026-07-18 21:09:40,288 - web_loader - ERROR - URL validation failed for 'not-a-valid-url': URL is missing scheme (http/https) or netloc domain.
+2026-07-18 21:09:40,296 - web_loader - INFO - robots.txt check returned allowed=False for URL: https://example.com/blocked-page
+2026-07-18 21:09:40,297 - web_loader - ERROR - URL fetch blocked by robots.txt policy: https://example.com/blocked-page
+2026-07-18 21:09:40,305 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/page
+2026-07-18 21:09:40,305 - web_loader - INFO - Fetching URL (Attempt 1/1): https://example.com/page
+2026-07-18 21:09:40,306 - web_loader - WARNING - Connection timeout on attempt 1: Connection timed out
+2026-07-18 21:09:40,314 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/article
+2026-07-18 21:09:40,315 - web_loader - INFO - Fetching URL (Attempt 1/3): https://example.com/article
+2026-07-18 21:09:40,317 - web_loader - INFO - Parsing page HTML structure.
+2026-07-18 21:09:40,328 - web_loader - INFO - Successfully scraped and cleaned page content: Test Article
+2026-07-18 21:09:40,335 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 21:09:40,337 - document_splitter - INFO - Text splitting completed. Documents=1 -> Chunks=6. Average chunk length=172.3 characters.
+2026-07-18 21:09:40,345 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 21:09:40,346 - document_splitter - WARNING - Text splitting cancelled by caller.
+2026-07-18 21:09:40,357 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-4')
+2026-07-18 21:09:40,363 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 21:09:40,369 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 21:09:40,403 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 21:09:40,404 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 21:09:40,405 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,552 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_rag_pipeline_success0\rag_test_faiss
+2026-07-18 21:09:40,553 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.147s.
+2026-07-18 21:09:40,559 - faiss_vector_store - INFO - Querying FAISS: 'What is RAG?' (k=4, filter=None)
+2026-07-18 21:09:40,563 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 2 matches.
+2026-07-18 21:09:40,563 - retrieval_cache - INFO - Cached results for query 'What is RAG?...' (strategy=semantic).
+2026-07-18 21:09:40,564 - retrieval_pipeline - INFO - Retrieval complete. Intent='definition request', Confidence='High', Latency=0.007s, Cache=False.
+2026-07-18 21:09:40,565 - rag_pipeline - INFO - RAG query completed successfully in 0.008s. Answer size=39 chars.
+2026-07-18 21:09:40,572 - rag_pipeline - INFO - Retrieval returned zero documents. Returning safe fallback answer.
+2026-07-18 21:09:40,580 - llm_factory - INFO - Clearing LLM providers cache.
+2026-07-18 21:09:40,581 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-1')
+2026-07-18 21:09:40,581 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-1')
+2026-07-18 21:09:40,581 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-2')
+2026-07-18 21:09:40,648 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,649 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,653 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_pipeline_semantic_search_0\retrieval_test_faiss
+2026-07-18 21:09:40,653 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:09:40,656 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 21:09:40,658 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:09:40,658 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 21:09:40,658 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,659 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'pdf'})
+2026-07-18 21:09:40,659 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,660 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 21:09:40,660 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 21:09:40,660 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'docx'})
+2026-07-18 21:09:40,660 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 0 matches.
+2026-07-18 21:09:40,661 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 21:09:40,661 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 21:09:40,669 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,670 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,674 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_pipeline_score_threshold0\retrieval_test_faiss
+2026-07-18 21:09:40,675 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:09:40,677 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 21:09:40,678 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:09:40,679 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 21:09:40,679 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,687 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,688 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,691 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_cache_hits_misses_and_inv0\retrieval_test_faiss
+2026-07-18 21:09:40,692 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:09:40,695 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 21:09:40,696 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:09:40,696 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 21:09:40,697 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,697 - retrieval_cache - INFO - Cache Hit for query 'RAG pipeline...'. Retained 2 documents.
+2026-07-18 21:09:40,697 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.000s, Cache=True.
+2026-07-18 21:09:40,697 - retrieval_cache - INFO - Invalidating all retrieval cache entries due to index update.
+2026-07-18 21:09:40,698 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 21:09:40,698 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:09:40,699 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 21:09:40,699 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,707 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,708 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,711 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_cache_ttl_expiration0\retrieval_test_faiss
+2026-07-18 21:09:40,711 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 21:09:40,714 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 21:09:40,715 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,716 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 21:09:40,716 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,717 - retrieval_cache - INFO - Cache expired for query 'caching test...' (Age: 0.0s). Evicting.
+2026-07-18 21:09:40,717 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 21:09:40,718 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,718 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 21:09:40,719 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,764 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,765 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,770 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_retrieval_inspector_outpu0\retrieval_test_faiss
+2026-07-18 21:09:40,770 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.004s.
+2026-07-18 21:09:40,773 - faiss_vector_store - INFO - Querying FAISS: 'RAG query' (k=1, filter={'document_type': 'txt'})
+2026-07-18 21:09:40,774 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,774 - retrieval_cache - INFO - Cached results for query 'RAG query...' (strategy=semantic).
+2026-07-18 21:09:40,774 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.002s, Cache=False.
+2026-07-18 21:09:40,784 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,787 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-15\\test_vector_store_crud_and_sea0\\test_faiss_index')
+2026-07-18 21:09:40,788 - faiss_vector_store - WARNING - Query run on uninitialized/empty FAISS index.
+2026-07-18 21:09:40,789 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:40,794 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:09:40,794 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.005s.
+2026-07-18 21:09:40,795 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=1, filter=None)
+2026-07-18 21:09:40,796 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,796 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 21:09:40,797 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:40,797 - faiss_vector_store - INFO - Updating 1 documents in FAISS.
+2026-07-18 21:09:40,797 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 21:09:40,804 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:09:40,805 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 21:09:40,805 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:40,808 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:09:40,809 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.003s.
+2026-07-18 21:09:40,809 - faiss_vector_store - INFO - FAISS document updates committed.
+2026-07-18 21:09:40,809 - faiss_vector_store - INFO - Querying FAISS: 'vector embeddings' (k=2, filter=None)
+2026-07-18 21:09:40,810 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 21:09:40,810 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 21:09:40,814 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 21:09:40,815 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 21:09:40,825 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:40,828 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-15\\test_vector_store_crud_and_sea1\\test_chroma_index')
+2026-07-18 21:09:40,828 - chroma_vector_store - WARNING - Query run on uninitialized/empty Chroma database.
+2026-07-18 21:09:40,829 - chroma_vector_store - INFO - Preparing to insert 2 documents to Chroma.
+2026-07-18 21:09:44,057 - chroma_vector_store - INFO - Successfully inserted 2 vectors in 3.227s.
+2026-07-18 21:09:44,068 - chroma_vector_store - INFO - Querying Chroma: 'vector databases' (k=1, filter=None)
+2026-07-18 21:09:44,076 - chroma_vector_store - INFO - Query completed in 0.007s. Fetched 1 matches.
+2026-07-18 21:09:44,077 - chroma_vector_store - INFO - Querying Chroma: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 21:09:44,086 - chroma_vector_store - INFO - Query completed in 0.007s. Fetched 1 matches.
+2026-07-18 21:09:44,086 - chroma_vector_store - INFO - Updating 1 documents in Chroma.
+2026-07-18 21:09:44,115 - chroma_vector_store - INFO - Chroma document updates committed.
+2026-07-18 21:09:44,115 - chroma_vector_store - INFO - Querying Chroma: 'vector embeddings' (k=2, filter=None)
+2026-07-18 21:09:44,122 - chroma_vector_store - INFO - Query completed in 0.005s. Fetched 2 matches.
+2026-07-18 21:09:44,122 - chroma_vector_store - INFO - Removing 1 documents from Chroma.
+2026-07-18 21:09:44,150 - chroma_vector_store - INFO - Documents removed from Chroma collection.
+2026-07-18 21:09:44,164 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:44,167 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-15\\test_concurrent_reads0\\concurrent_faiss')
+2026-07-18 21:09:44,168 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 21:09:44,172 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_concurrent_reads0\concurrent_faiss
+2026-07-18 21:09:44,173 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.004s.
+2026-07-18 21:09:44,176 - faiss_vector_store - INFO - Querying FAISS: 'embeddings' (k=1, filter=None)
+2026-07-18 21:09:44,178 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 21:09:44,178 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=1, filter=None)
+2026-07-18 21:09:44,180 - faiss_vector_store - INFO - Querying FAISS: 'faiss' (k=1, filter=None)
+2026-07-18 21:09:44,180 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 21:09:44,180 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:44,181 - faiss_vector_store - INFO - Querying FAISS: 'chroma' (k=1, filter=None)
+2026-07-18 21:09:44,182 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 21:09:44,182 - faiss_vector_store - INFO - Querying FAISS: 'vectors' (k=1, filter=None)
+2026-07-18 21:09:44,183 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 21:09:44,195 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:44,202 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 21:09:44,204 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 21:09:44,205 - faiss_vector_store - WARNING - Auto-load failed on init: Could not load or deserialize FAISS database: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized. Index will be built on document insertion.
+2026-07-18 21:09:44,205 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 21:09:44,206 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 21:09:44,216 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:44,218 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-15\\test_dimension_mismatch_valida0\\mismatch_faiss')
+2026-07-18 21:09:44,218 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:44,222 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-15\test_dimension_mismatch_valida0\mismatch_faiss
+2026-07-18 21:09:44,222 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.003s.
+2026-07-18 21:09:44,223 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:44,233 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 21:09:44,237 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-15\\test_invalid_vector_values0\\invalid_vals_faiss')
+2026-07-18 21:09:44,238 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:44,240 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 21:09:49,346 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 21:09:49,363 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 22:53:25,193 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 22:53:25,198 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 22:53:25,201 - mock_embeddings - INFO - Logger 'mock_embeddings' initialized at level INFO.
+2026-07-18 22:53:25,508 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 22:53:25,509 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 22:53:25,511 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 22:53:25,604 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 22:53:46,623 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 22:53:46,625 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 22:53:46,634 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 22:53:46,636 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 22:53:46,638 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 22:53:46,745 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 22:53:46,756 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 22:53:46,759 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 22:53:46,764 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 22:53:46,766 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 22:53:46,768 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 22:53:46,772 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 22:53:46,773 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 22:53:46,773 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 22:53:46,900 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 22:53:46,902 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 22:53:46,902 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 22:53:46,902 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:46,905 - embedding_factory - INFO - Clearing embedding providers cache.
+2026-07-18 22:53:46,905 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-a')
+2026-07-18 22:53:46,905 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 22:53:46,905 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'model-b')
+2026-07-18 22:53:46,905 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 22:53:46,909 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 22:53:46,913 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 22:53:46,913 - sentence_transformer_provider - INFO - Initiating lazy load for model 'BAAI/bge-small-en-v1.5' on device 'cpu'.
+2026-07-18 22:53:46,914 - sentence_transformer_provider - INFO - Model loaded successfully in 0.000s. Vector dimension=384
+2026-07-18 22:53:46,914 - sentence_transformer_provider - INFO - Generating embeddings for 1 documents (batch size=32).
+2026-07-18 22:53:46,914 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0003s.
+2026-07-18 22:53:46,915 - sentence_transformer_provider - INFO - Generating embeddings for 2 documents (batch size=32).
+2026-07-18 22:53:46,915 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.000s. Average time per document=0.0002s.
+2026-07-18 22:53:46,919 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 22:53:46,919 - sentence_transformer_provider - INFO - Initiating lazy load for model 'invalid-namespace/non-existent-model' on device 'cpu'.
+2026-07-18 22:53:48,329 - sentence_transformer_provider - ERROR - Failed to load sentence-transformers model 'invalid-namespace/non-existent-model': 401 Client Error. (Request ID: Root=1-6a5bb6a4-0af5f2b842e9a1626ca699b3;5b92150f-9643-4af7-8b36-987c2dfc67de)
+
+Repository Not Found for url: https://huggingface.co/invalid-namespace/non-existent-model/resolve/main/modules.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Invalid username or password.
+2026-07-18 22:53:48,336 - sentence_transformer_provider - WARNING - CUDA device was requested but PyTorch CUDA support is not available. Falling back to CPU.
+2026-07-18 22:53:48,346 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 22:53:48,353 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 22:53:48,376 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 22:53:48,378 - evaluation_runner - WARNING - Skipping duplicate question query: 'What is RAG?'
+2026-07-18 22:53:48,386 - evaluation_base - WARNING - RAGAS framework is not installed. Using heuristic evaluations.
+2026-07-18 22:53:48,387 - evaluation_runner - INFO - Running evaluation benchmark suite 'failure_suite' containing 1 items.
+2026-07-18 22:53:48,387 - evaluation_runner - INFO - [1/1] Evaluating query: 'Will this fail?'
+2026-07-18 22:53:48,387 - evaluation_runner - ERROR - Failed to evaluate question 'Will this fail?': API connection timeout.
+2026-07-18 22:53:48,391 - evaluation_runner - INFO - Evaluation run written to historical summary log.
+2026-07-18 22:53:48,403 - pdf_loader - INFO - Opening PDF file: test_file.pdf
+2026-07-18 22:53:48,405 - pdf_loader - INFO - Successfully processed 2 text-containing pages from test_file.pdf
+2026-07-18 22:53:48,412 - pdf_loader - INFO - Opening PDF file: scanned.pdf
+2026-07-18 22:53:48,414 - pdf_loader - ERROR - Scanned or empty PDF: no text extracted from scanned.pdf
+2026-07-18 22:53:48,425 - pdf_loader - INFO - Opening PDF file: encrypted.pdf
+2026-07-18 22:53:48,426 - pdf_loader - ERROR - Corrupted or empty PDF: encrypted.pdf has 0 pages.
+2026-07-18 22:53:48,430 - pdf_loader - ERROR - File size 26214400 exceeds limit of 20971520 bytes.
+2026-07-18 22:53:48,435 - txt_loader - INFO - Successfully loaded and preprocessed text document: utf8.txt
+2026-07-18 22:53:48,439 - txt_loader - INFO - Successfully loaded and preprocessed text document: bom.txt
+2026-07-18 22:53:48,441 - txt_loader - INFO - Successfully loaded and preprocessed text document: iso.txt
+2026-07-18 22:53:48,447 - txt_loader - ERROR - Unsupported text file encoding for: corrupted.txt
+2026-07-18 22:53:48,450 - web_loader - ERROR - URL validation failed for 'not-a-valid-url': URL is missing scheme (http/https) or netloc domain.
+2026-07-18 22:53:48,453 - web_loader - INFO - robots.txt check returned allowed=False for URL: https://example.com/blocked-page
+2026-07-18 22:53:48,454 - web_loader - ERROR - URL fetch blocked by robots.txt policy: https://example.com/blocked-page
+2026-07-18 22:53:48,459 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/page
+2026-07-18 22:53:48,459 - web_loader - INFO - Fetching URL (Attempt 1/1): https://example.com/page
+2026-07-18 22:53:48,460 - web_loader - WARNING - Connection timeout on attempt 1: Connection timed out
+2026-07-18 22:53:48,464 - web_loader - INFO - robots.txt check returned allowed=True for URL: https://example.com/article
+2026-07-18 22:53:48,464 - web_loader - INFO - Fetching URL (Attempt 1/3): https://example.com/article
+2026-07-18 22:53:48,465 - web_loader - INFO - Parsing page HTML structure.
+2026-07-18 22:53:48,473 - web_loader - INFO - Successfully scraped and cleaned page content: Test Article
+2026-07-18 22:53:48,477 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 22:53:48,478 - document_splitter - INFO - Text splitting completed. Documents=1 -> Chunks=6. Average chunk length=172.3 characters.
+2026-07-18 22:53:48,480 - document_splitter - INFO - Initiating splitting for 1 source documents.
+2026-07-18 22:53:48,480 - document_splitter - WARNING - Text splitting cancelled by caller.
+2026-07-18 22:53:48,488 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-4')
+2026-07-18 22:53:48,492 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 22:53:48,495 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-4')
+2026-07-18 22:53:48,509 - embedding_factory - INFO - Creating new embedding provider instance for key: ('mock', 'test-model')
+2026-07-18 22:53:48,510 - mock_embeddings - INFO - MockEmbeddings initialized simulating dimension=384
+2026-07-18 22:53:48,510 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,629 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_rag_pipeline_success0\rag_test_faiss
+2026-07-18 22:53:48,630 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.119s.
+2026-07-18 22:53:48,633 - faiss_vector_store - INFO - Querying FAISS: 'What is RAG?' (k=4, filter=None)
+2026-07-18 22:53:48,635 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 2 matches.
+2026-07-18 22:53:48,635 - retrieval_cache - INFO - Cached results for query 'What is RAG?...' (strategy=semantic).
+2026-07-18 22:53:48,636 - retrieval_pipeline - INFO - Retrieval complete. Intent='definition request', Confidence='High', Latency=0.004s, Cache=False.
+2026-07-18 22:53:48,636 - rag_pipeline - INFO - RAG query completed successfully in 0.004s. Answer size=39 chars.
+2026-07-18 22:53:48,642 - rag_pipeline - INFO - Retrieval returned zero documents. Returning safe fallback answer.
+2026-07-18 22:53:48,645 - llm_factory - INFO - Clearing LLM providers cache.
+2026-07-18 22:53:48,645 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-1')
+2026-07-18 22:53:48,645 - llm_factory - INFO - Retrieving cached LLM provider singleton for key: ('mock', 'gpt-1')
+2026-07-18 22:53:48,645 - llm_factory - INFO - Creating new LLM provider instance for key: ('mock', 'gpt-2')
+2026-07-18 22:53:48,672 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,673 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,675 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_pipeline_semantic_search_0\retrieval_test_faiss
+2026-07-18 22:53:48,676 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 22:53:48,677 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 22:53:48,678 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 2 matches.
+2026-07-18 22:53:48,678 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 22:53:48,678 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,679 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'pdf'})
+2026-07-18 22:53:48,679 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:48,679 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 22:53:48,680 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,680 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'docx'})
+2026-07-18 22:53:48,681 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 0 matches.
+2026-07-18 22:53:48,681 - retrieval_cache - INFO - Cached results for query 'databases...' (strategy=semantic).
+2026-07-18 22:53:48,681 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,685 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,686 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,687 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_pipeline_score_threshold0\retrieval_test_faiss
+2026-07-18 22:53:48,688 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 22:53:48,689 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=2, filter=None)
+2026-07-18 22:53:48,689 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 22:53:48,689 - retrieval_cache - INFO - Cached results for query 'vector databases...' (strategy=semantic).
+2026-07-18 22:53:48,689 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='Low', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,693 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,694 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,697 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_cache_hits_misses_and_inv0\retrieval_test_faiss
+2026-07-18 22:53:48,697 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 22:53:48,699 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 22:53:48,700 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 22:53:48,700 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 22:53:48,700 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,700 - retrieval_cache - INFO - Cache Hit for query 'RAG pipeline...'. Retained 2 documents.
+2026-07-18 22:53:48,700 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.000s, Cache=True.
+2026-07-18 22:53:48,701 - retrieval_cache - INFO - Invalidating all retrieval cache entries due to index update.
+2026-07-18 22:53:48,701 - faiss_vector_store - INFO - Querying FAISS: 'RAG pipeline' (k=2, filter=None)
+2026-07-18 22:53:48,701 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 22:53:48,701 - retrieval_cache - INFO - Cached results for query 'RAG pipeline...' (strategy=semantic).
+2026-07-18 22:53:48,701 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,707 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,707 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,709 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_cache_ttl_expiration0\retrieval_test_faiss
+2026-07-18 22:53:48,710 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 22:53:48,711 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 22:53:48,713 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 22:53:48,714 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 22:53:48,714 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.003s, Cache=False.
+2026-07-18 22:53:48,714 - retrieval_cache - INFO - Cache expired for query 'caching test...' (Age: 0.0s). Evicting.
+2026-07-18 22:53:48,715 - faiss_vector_store - INFO - Querying FAISS: 'caching test' (k=1, filter=None)
+2026-07-18 22:53:48,715 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:48,715 - retrieval_cache - INFO - Cached results for query 'caching test...' (strategy=semantic).
+2026-07-18 22:53:48,715 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,738 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,739 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,742 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_retrieval_inspector_outpu0\retrieval_test_faiss
+2026-07-18 22:53:48,743 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 22:53:48,744 - faiss_vector_store - INFO - Querying FAISS: 'RAG query' (k=1, filter={'document_type': 'txt'})
+2026-07-18 22:53:48,745 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:48,745 - retrieval_cache - INFO - Cached results for query 'RAG query...' (strategy=semantic).
+2026-07-18 22:53:48,745 - retrieval_pipeline - INFO - Retrieval complete. Intent='question', Confidence='High', Latency=0.001s, Cache=False.
+2026-07-18 22:53:48,749 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,750 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-16\\test_vector_store_crud_and_sea0\\test_faiss_index')
+2026-07-18 22:53:48,751 - faiss_vector_store - WARNING - Query run on uninitialized/empty FAISS index.
+2026-07-18 22:53:48,751 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:48,753 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 22:53:48,753 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.002s.
+2026-07-18 22:53:48,753 - faiss_vector_store - INFO - Querying FAISS: 'vector databases' (k=1, filter=None)
+2026-07-18 22:53:48,753 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:48,753 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 22:53:48,754 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:48,754 - faiss_vector_store - INFO - Updating 1 documents in FAISS.
+2026-07-18 22:53:48,754 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 22:53:48,764 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 22:53:48,764 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 22:53:48,764 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 22:53:48,767 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 22:53:48,768 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.003s.
+2026-07-18 22:53:48,768 - faiss_vector_store - INFO - FAISS document updates committed.
+2026-07-18 22:53:48,768 - faiss_vector_store - INFO - Querying FAISS: 'vector embeddings' (k=2, filter=None)
+2026-07-18 22:53:48,768 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 2 matches.
+2026-07-18 22:53:48,769 - faiss_vector_store - INFO - Removing 1 documents from FAISS.
+2026-07-18 22:53:48,770 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_vector_store_crud_and_sea0\test_faiss_index
+2026-07-18 22:53:48,770 - faiss_vector_store - INFO - Documents removed from FAISS collection.
+2026-07-18 22:53:48,777 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:48,778 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-16\\test_vector_store_crud_and_sea1\\test_chroma_index')
+2026-07-18 22:53:48,778 - chroma_vector_store - WARNING - Query run on uninitialized/empty Chroma database.
+2026-07-18 22:53:48,779 - chroma_vector_store - INFO - Preparing to insert 2 documents to Chroma.
+2026-07-18 22:53:50,583 - chroma_vector_store - INFO - Successfully inserted 2 vectors in 1.804s.
+2026-07-18 22:53:50,588 - chroma_vector_store - INFO - Querying Chroma: 'vector databases' (k=1, filter=None)
+2026-07-18 22:53:50,594 - chroma_vector_store - INFO - Query completed in 0.005s. Fetched 1 matches.
+2026-07-18 22:53:50,595 - chroma_vector_store - INFO - Querying Chroma: 'databases' (k=2, filter={'document_type': 'txt'})
+2026-07-18 22:53:50,600 - chroma_vector_store - INFO - Query completed in 0.004s. Fetched 1 matches.
+2026-07-18 22:53:50,600 - chroma_vector_store - INFO - Updating 1 documents in Chroma.
+2026-07-18 22:53:50,619 - chroma_vector_store - INFO - Chroma document updates committed.
+2026-07-18 22:53:50,620 - chroma_vector_store - INFO - Querying Chroma: 'vector embeddings' (k=2, filter=None)
+2026-07-18 22:53:50,625 - chroma_vector_store - INFO - Query completed in 0.004s. Fetched 2 matches.
+2026-07-18 22:53:50,625 - chroma_vector_store - INFO - Removing 1 documents from Chroma.
+2026-07-18 22:53:50,638 - chroma_vector_store - INFO - Documents removed from Chroma collection.
+2026-07-18 22:53:50,647 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:50,648 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-16\\test_concurrent_reads0\\concurrent_faiss')
+2026-07-18 22:53:50,648 - faiss_vector_store - INFO - Preparing to insert 2 documents to FAISS.
+2026-07-18 22:53:50,651 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_concurrent_reads0\concurrent_faiss
+2026-07-18 22:53:50,652 - faiss_vector_store - INFO - Successfully inserted 2 vectors to FAISS in 0.003s.
+2026-07-18 22:53:50,653 - faiss_vector_store - INFO - Querying FAISS: 'embeddings' (k=1, filter=None)
+2026-07-18 22:53:50,655 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 22:53:50,655 - faiss_vector_store - INFO - Querying FAISS: 'databases' (k=1, filter=None)
+2026-07-18 22:53:50,655 - faiss_vector_store - INFO - Query completed in 0.000s. Fetched 1 matches.
+2026-07-18 22:53:50,657 - faiss_vector_store - INFO - Querying FAISS: 'faiss' (k=1, filter=None)
+2026-07-18 22:53:50,657 - faiss_vector_store - INFO - Querying FAISS: 'chroma' (k=1, filter=None)
+2026-07-18 22:53:50,658 - faiss_vector_store - INFO - Query completed in 0.001s. Fetched 1 matches.
+2026-07-18 22:53:50,659 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 22:53:50,658 - faiss_vector_store - INFO - Querying FAISS: 'vectors' (k=1, filter=None)
+2026-07-18 22:53:50,660 - faiss_vector_store - INFO - Query completed in 0.002s. Fetched 1 matches.
+2026-07-18 22:53:50,668 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:50,671 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 22:53:50,678 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 22:53:50,678 - faiss_vector_store - WARNING - Auto-load failed on init: Could not load or deserialize FAISS database: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized. Index will be built on document insertion.
+2026-07-18 22:53:50,679 - faiss_vector_store - INFO - Loading FAISS index from: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_corrupted_index_load0\corrupted_faiss
+2026-07-18 22:53:50,679 - faiss_vector_store - ERROR - Failed to load FAISS index from disk: Error in class std::unique_ptr<struct faiss::Index,struct std::default_delete<struct faiss::Index> > __cdecl faiss::read_index_up(struct faiss::IOReader *,int) at D:\a\faiss\faiss\faiss\impl\index_read.cpp:2819: Index type 0x62726167 ("garb") not recognized
+2026-07-18 22:53:50,684 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:50,685 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-16\\test_dimension_mismatch_valida0\\mismatch_faiss')
+2026-07-18 22:53:50,685 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 22:53:50,688 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-16\test_dimension_mismatch_valida0\mismatch_faiss
+2026-07-18 22:53:50,688 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.003s.
+2026-07-18 22:53:50,689 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 22:53:50,692 - embedding_factory - INFO - Retrieving cached embedding provider singleton for key: ('mock', 'test-model')
+2026-07-18 22:53:50,693 - vector_store_factory - INFO - Creating new vector store instance for key: ('faiss', 'C:\\Users\\sri sharanya\\AppData\\Local\\Temp\\pytest-of-sri sharanya\\pytest-16\\test_invalid_vector_values0\\invalid_vals_faiss')
+2026-07-18 22:53:50,694 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.
+2026-07-18 22:53:50,695 - faiss_vector_store - INFO - Preparing to insert 1 documents to FAISS.

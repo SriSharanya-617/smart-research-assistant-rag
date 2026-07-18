@@ -1,7 +1,15 @@
 """
-Evaluation module for measuring RAG pipeline response quality.
+Evaluation and Benchmarking package for the Smart Research Assistant.
+Exposes evaluation engines, runner queues, collectors, and report generators.
 """
 
-from src.evaluation.evaluator import RAGValEvaluator
+from src.evaluation.base import EvaluationEngine, MetricsCollector
+from src.evaluation.runner import EvaluationRunner
+from src.evaluation.reports import ReportGenerator
 
-__all__ = ["RAGValEvaluator"]
+__all__ = [
+    "EvaluationEngine",
+    "MetricsCollector",
+    "EvaluationRunner",
+    "ReportGenerator"
+]
