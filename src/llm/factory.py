@@ -46,6 +46,14 @@ class LLMFactory:
         prov_clean = (provider or config.LLM_PROVIDER).lower().strip()
         model_clean = (model_name or config.LLM_MODEL).strip()
         
+        # Resolve api_key from config default if not supplied
+        resolved_api_key = api_key
+        if not resolved_api_key:
+            if prov_clean in ["gemini", "google"]:
+                resolved_api_key = config.GOOGLE_API_KEY or config.GEMINI_API_KEY
+            elif prov_clean == "openai":
+                resolved_api_key = config.OPENAI_API_KEY
+                
         cache_key = (prov_clean, model_clean)
         
         # Check cache registry
@@ -61,14 +69,14 @@ class LLMFactory:
                     model_name=model_clean,
                     temperature=temperature,
                     max_tokens=max_tokens,
-                    api_key=api_key
+                    api_key=resolved_api_key
                 )
             elif prov_clean in ["gemini", "google"]:
                 provider_inst = GeminiProvider(
                     model_name=model_clean,
                     temperature=temperature,
                     max_tokens=max_tokens,
-                    api_key=api_key
+                    api_key=resolved_api_key
                 )
             elif prov_clean == "ollama":
                 # Check config url base if available

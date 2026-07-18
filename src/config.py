@@ -47,6 +47,17 @@ class AppConfig(BaseSettings):
     HUGGINGFACEHUB_API_TOKEN: Optional[str] = Field(default=None)
     OLLAMA_BASE_URL: str = Field(default="http://localhost:11434")
 
+    def __init__(self, **values):
+        super().__init__(**values)
+        if self.GOOGLE_API_KEY:
+            os.environ["GOOGLE_API_KEY"] = self.GOOGLE_API_KEY
+        if self.GEMINI_API_KEY:
+            os.environ["GEMINI_API_KEY"] = self.GEMINI_API_KEY
+        if self.OPENAI_API_KEY:
+            os.environ["OPENAI_API_KEY"] = self.OPENAI_API_KEY
+        if self.ANTHROPIC_API_KEY:
+            os.environ["ANTHROPIC_API_KEY"] = self.ANTHROPIC_API_KEY
+
     # Embedding Settings
     EMBEDDING_PROVIDER: str = Field(default=DEFAULT_EMBEDDING_PROVIDER)
     EMBEDDING_MODEL: str = Field(default=DEFAULT_EMBEDDING_MODEL)

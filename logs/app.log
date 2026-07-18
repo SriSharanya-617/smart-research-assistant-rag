@@ -3645,3 +3645,100 @@ Invalid username or password.
 2026-07-18 23:27:50,683 - faiss_vector_store - INFO - Preparing to insert 3 documents to FAISS.
 2026-07-18 23:27:50,687 - faiss_vector_store - INFO - FAISS index saved to: C:\Users\sri sharanya\AppData\Local\Temp\pytest-of-sri sharanya\pytest-21\test_vector_store_batch_duplic1\batch_dups_faiss
 2026-07-18 23:27:50,688 - faiss_vector_store - INFO - Successfully inserted 1 vectors to FAISS in 0.005s.
+2026-07-18 23:29:33,633 - text_preprocessing - INFO - Logger 'text_preprocessing' initialized at level INFO.
+2026-07-18 23:29:33,640 - pdf_loader - INFO - Logger 'pdf_loader' initialized at level INFO.
+2026-07-18 23:29:33,648 - txt_loader - INFO - Logger 'txt_loader' initialized at level INFO.
+2026-07-18 23:29:34,457 - web_loader - INFO - Logger 'web_loader' initialized at level INFO.
+2026-07-18 23:30:27,232 - document_splitter - INFO - Logger 'document_splitter' initialized at level INFO.
+2026-07-18 23:30:27,264 - sentence_transformer_provider - INFO - Logger 'sentence_transformer_provider' initialized at level INFO.
+2026-07-18 23:30:27,274 - embedding_factory - INFO - Logger 'embedding_factory' initialized at level INFO.
+2026-07-18 23:30:29,472 - chroma_vector_store - INFO - Logger 'chroma_vector_store' initialized at level INFO.
+2026-07-18 23:30:29,515 - faiss_vector_store - INFO - Logger 'faiss_vector_store' initialized at level INFO.
+2026-07-18 23:30:29,520 - vector_store_factory - INFO - Logger 'vector_store_factory' initialized at level INFO.
+2026-07-18 23:30:29,536 - query_processor - INFO - Logger 'query_processor' initialized at level INFO.
+2026-07-18 23:30:29,542 - retrieval_evaluators - INFO - Logger 'retrieval_evaluators' initialized at level INFO.
+2026-07-18 23:30:29,547 - retrieval_cache - INFO - Logger 'retrieval_cache' initialized at level INFO.
+2026-07-18 23:30:29,557 - retrieval_pipeline - INFO - Logger 'retrieval_pipeline' initialized at level INFO.
+2026-07-18 23:30:29,568 - llm_providers - INFO - Logger 'llm_providers' initialized at level INFO.
+2026-07-18 23:30:29,573 - llm_factory - INFO - Logger 'llm_factory' initialized at level INFO.
+2026-07-18 23:30:29,581 - llm_utils - INFO - Logger 'llm_utils' initialized at level INFO.
+2026-07-18 23:30:29,586 - rag_pipeline - INFO - Logger 'rag_pipeline' initialized at level INFO.
+2026-07-18 23:30:29,594 - evaluation_base - INFO - Logger 'evaluation_base' initialized at level INFO.
+2026-07-18 23:30:29,599 - evaluation_runner - INFO - Logger 'evaluation_runner' initialized at level INFO.
+2026-07-18 23:30:29,605 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 23:30:29,605 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 23:30:29,605 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 23:30:29,605 - streamlit_app - INFO - Logger 'streamlit_app' initialized at level INFO.
+2026-07-18 23:30:30,402 - embedding_factory - INFO - Creating new embedding provider instance for key: ('huggingface', 'BAAI/bge-small-en-v1.5')
+2026-07-18 23:30:30,405 - sentence_transformer_provider - INFO - Auto-selected device: cpu
+2026-07-18 23:30:30,408 - vector_store_factory - INFO - Creating new vector store instance for key: ('chroma', 'C:\\Users\\sri sharanya\\Documents\\smart-research-assistant-rag\\data\\vectorstore')
+2026-07-18 23:30:30,408 - chroma_vector_store - INFO - Loading ChromaDB collection index from: C:\Users\sri sharanya\Documents\smart-research-assistant-rag\data\vectorstore
+2026-07-18 23:30:33,172 - chroma_vector_store - INFO - ChromaDB loaded. Vector count=0. Dimension=None
+2026-07-18 23:30:33,173 - llm_factory - INFO - Creating new LLM provider instance for key: ('gemini', 'gemini-1.5-flash')
+2026-07-18 23:30:42,517 - pdf_loader - INFO - Opening PDF file: data\tmp_uploads\attention.pdf
+2026-07-18 23:30:47,232 - pdf_loader - INFO - Successfully processed 15 text-containing pages from attention.pdf
+2026-07-18 23:30:47,237 - document_splitter - INFO - Initiating splitting for 15 source documents.
+2026-07-18 23:30:47,242 - document_splitter - INFO - Text splitting completed. Documents=15 -> Chunks=52. Average chunk length=872.8 characters.
+2026-07-18 23:30:47,242 - chroma_vector_store - INFO - Preparing to insert 52 documents to Chroma.
+2026-07-18 23:30:47,253 - sentence_transformer_provider - INFO - Initiating lazy load for model 'BAAI/bge-small-en-v1.5' on device 'cpu'.
+2026-07-18 23:30:58,959 - sentence_transformer_provider - INFO - Model loaded successfully in 11.700s. Vector dimension=384
+2026-07-18 23:30:58,962 - sentence_transformer_provider - INFO - Generating embeddings for 52 documents (batch size=32).
+2026-07-18 23:31:21,805 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=22.843s. Average time per document=0.4393s.
+2026-07-18 23:31:21,836 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,836 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,839 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,840 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,842 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,842 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,844 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,844 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,844 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,846 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,847 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,847 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,847 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,847 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,849 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,849 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,849 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,851 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,852 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_4. Skipping.
+2026-07-18 23:31:21,853 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,853 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,853 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,855 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,855 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,855 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,857 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,857 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,857 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,857 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,859 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,859 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,861 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,861 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,861 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,862 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,862 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,862 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,863 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,863 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,865 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,866 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_1. Skipping.
+2026-07-18 23:31:21,866 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_2. Skipping.
+2026-07-18 23:31:21,867 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_3. Skipping.
+2026-07-18 23:31:21,867 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,867 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,869 - chroma_vector_store - WARNING - Duplicate chunk ID in current batch: bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697_chunk_0. Skipping.
+2026-07-18 23:31:21,869 - sentence_transformer_provider - INFO - Generating embeddings for 6 documents (batch size=32).
+2026-07-18 23:31:23,867 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=1.999s. Average time per document=0.3331s.
+2026-07-18 23:31:24,178 - chroma_vector_store - INFO - Successfully inserted 6 vectors in 2.309s.
+2026-07-18 23:31:24,183 - retrieval_cache - INFO - Invalidating all retrieval cache entries due to index update.
+2026-07-18 23:31:40,364 - chroma_vector_store - INFO - Querying Chroma: 'what is attention' (k=4, filter=None)
+2026-07-18 23:31:40,365 - sentence_transformer_provider - INFO - Generating embeddings for 1 documents (batch size=32).
+2026-07-18 23:31:40,456 - sentence_transformer_provider - INFO - Generated embeddings. Generation time=0.091s. Average time per document=0.0913s.
+2026-07-18 23:31:40,519 - chroma_vector_store - INFO - Query completed in 0.153s. Fetched 4 matches.
+2026-07-18 23:31:40,521 - retrieval_cache - INFO - Cached results for query 'what is attention...' (strategy=semantic).
+2026-07-18 23:31:40,525 - retrieval_pipeline - INFO - Retrieval complete. Intent='definition request', Confidence='Low', Latency=0.161s, Cache=False.
+2026-07-18 23:31:40,529 - streamlit_app - ERROR - RAG Pipeline execution failed: Gemini API Key is missing. Set GOOGLE_API_KEY environment variable.
+2026-07-18 23:31:40,529 - streamlit_app - ERROR - RAG Pipeline execution failed: Gemini API Key is missing. Set GOOGLE_API_KEY environment variable.
