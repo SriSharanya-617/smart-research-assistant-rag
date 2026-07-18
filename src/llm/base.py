@@ -1,39 +1,60 @@
 """
-Abstract base class interface for LLM model providers.
+Abstract base class interface for LLM Providers.
 """
 
 from abc import ABC, abstractmethod
-from typing import Iterator, Optional
+from typing import Dict, Any, Generator, Optional, Union
 
-class BaseLLM(ABC):
+class BaseLLMProvider(ABC):
     """
-    Common abstraction interface for LLM text generation.
-    Supports standard output and token streaming options.
+    Common abstraction layer interface for text generation providers.
+    Supports standard generation and is extensible for token streaming.
     """
+    def __init__(self, model_name: str, temperature: float = 0.0, max_tokens: int = 1000):
+        self.model_name = model_name
+        self.temperature = temperature
+        self.max_tokens = max_tokens
+        
+        # Diagnostics metadata for last execution run
+        self.last_metadata: Dict[str, Any] = {
+            "provider_name": self.__class__.__name__,
+            "model_name": self.model_name,
+            "generation_latency": 0.0,
+            "retry_count": 0,
+            "token_usage": None
+        }
+
     @abstractmethod
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+    def generate(
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None
+    ) -> str:
         """
-        Executes synchronous text generation.
+        Submits prompt to LLM and returns the completed text response.
         
         Args:
-            prompt: User message prompt.
-            system_prompt: Optional system behavior guidelines.
+            prompt: Generated user query + context prompt.
+            system_prompt: Optional system instructions override.
             
         Returns:
-            str: Generated text response.
+            str: Generated text completions.
         """
         pass
 
-    @abstractmethod
-    def stream_generate(self, prompt: str, system_prompt: Optional[str] = None) -> Iterator[str]:
+    def generate_stream(
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None
+    ) -> Generator[str, None, None]:
         """
-        Executes real-time streaming text generation.
-        
-        Args:
-            prompt: User message prompt.
-            system_prompt: Optional system behavior guidelines.
-            
-        Returns:
-            Iterator[str]: Token parts yielding sequentially.
+        Optional token streaming generator. Defaults to a single chunk output.
+        Allows adding future streaming UI capabilities without breaking the public API.
         """
-        pass
+        yield self.generate(prompt, system_prompt=system_prompt)
+
+    def get_last_metadata(self) -> Dict[str, Any]:
+        """
+        Exposes generation execution metrics.
+        """
+        return self.last_metadata

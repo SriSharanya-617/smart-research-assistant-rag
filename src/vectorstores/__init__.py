@@ -1,15 +1,32 @@
 """
-Vector store module providing unified interfaces for ChromaDB and FAISS.
+Vector Store Package for the Smart Research Assistant.
+Exposes database interfaces, ChromaDB & FAISS wrappers, factories, and exception classes.
 """
 
-from src.vectorstores.base import BaseVectorStore
-from src.vectorstores.chroma_store import ChromaStore
-from src.vectorstores.faiss_store import FAISSStore
-from src.vectorstores.manager import VectorStoreManager
+from src.vectorstores.base import BaseVectorStore, validate_vector
+from src.vectorstores.chroma_store import ChromaVectorStore, ChromaStore
+from src.vectorstores.faiss_store import FAISSVectorStore, FAISSStore
+from src.vectorstores.manager import VectorStoreFactory, VectorStoreManager
+from src.vectorstores.exceptions import (
+    VectorStoreError,
+    IndexLoadError,
+    DimensionMismatchError,
+    DuplicateVectorError,
+    CorruptedIndexError
+)
 
 __all__ = [
     "BaseVectorStore",
+    "validate_vector",
+    "ChromaVectorStore",
     "ChromaStore",
+    "FAISSVectorStore",
     "FAISSStore",
-    "VectorStoreManager"
+    "VectorStoreFactory",
+    "VectorStoreManager",
+    "VectorStoreError",
+    "IndexLoadError",
+    "DimensionMismatchError",
+    "DuplicateVectorError",
+    "CorruptedIndexError"
 ]

@@ -1,146 +1,114 @@
 """
-Factory class to instantiate and wrap LLMs from multiple providers.
+LLM Factory registry for instantiating and caching LLM providers.
 """
 
-import time
-from typing import Iterator, Optional
-from langchain_core.messages import SystemMessage, HumanMessage
-from src.llm.base import BaseLLM
+from typing import Dict, Tuple, Optional
+from src.llm.base import BaseLLMProvider
+from src.llm.providers import OpenAIProvider, GeminiProvider, OllamaProvider, MockLLMProvider
+from src.llm.exceptions import LLMError
 from src.logger import setup_logger
+from src.config import get_config
 
 logger = setup_logger("llm_factory")
 
-class LangChainLLMWrapper(BaseLLM):
-    """
-    Wraps standard LangChain chat models to match the BaseLLM signature.
-    """
-    def __init__(self, lc_llm):
-        self.lc_llm = lc_llm
-        logger.info(f"LangChainLLMWrapper loaded for: {type(self.lc_llm).__name__}")
-
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
-        messages = []
-        if system_prompt:
-            messages.append(SystemMessage(content=system_prompt))
-        messages.append(HumanMessage(content=prompt))
-        
-        try:
-            logger.debug("Executing LLM generation call.")
-            response = self.lc_llm.invoke(messages)
-            return str(response.content)
-        except Exception as e:
-            logger.error(f"Error during LLM invoke: {e}")
-            raise RuntimeError(f"LLM execution failed: {e}")
-
-    def stream_generate(self, prompt: str, system_prompt: Optional[str] = None) -> Iterator[str]:
-        messages = []
-        if system_prompt:
-            messages.append(SystemMessage(content=system_prompt))
-        messages.append(HumanMessage(content=prompt))
-        
-        try:
-            logger.debug("Executing streaming LLM generation call.")
-            for chunk in self.lc_llm.stream(messages):
-                # Standard langchain chunks return chunk objects with content
-                yield str(chunk.content)
-        except Exception as e:
-            logger.error(f"Error during LLM streaming: {e}")
-            yield f"\n[STREAM ERROR: {e}]"
-
-
-class MockLLM(BaseLLM):
-    """
-    A Mock LLM returning pre-configured messages.
-    Perfect for unit testing and local deployment checking without hitting API call limits.
-    """
-    def __init__(self, model_name: str):
-        self.model_name = model_name
-        logger.info(f"MockLLM initialized simulating model: {self.model_name}")
-
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
-        logger.debug(f"Mock LLM generating response for query: '{prompt[:40]}...'")
-        time.sleep(0.5) # Simulate latency
-        return (
-            f"[Mock LLM Response - Model: {self.model_name}]\n\n"
-            f"This is a mocked answer responding to your question. "
-            f"In the production step, this response will be constructed by performing RAG "
-            f"and asking the LLM to synthesize the retrieved source chunks."
-        )
-
-    def stream_generate(self, prompt: str, system_prompt: Optional[str] = None) -> Iterator[str]:
-        logger.debug("Mock LLM starting stream generation.")
-        response_text = (
-            f"[Mock LLM Response - Model: {self.model_name}]\n\n"
-            f"This is a simulated token stream. If you set valid API keys and change the provider "
-            f"in the settings, you will see real-time inference results from your provider."
-        )
-        for word in response_text.split(" "):
-            yield word + " "
-            time.sleep(0.04)
-
+# Global singleton registry cache
+_llm_cache: Dict[Tuple[str, str], BaseLLMProvider] = {}
 
 class LLMFactory:
     """
-    Factory to construct and return appropriate BaseLLM instances based on settings.
+    Factory constructor managing loaded LLM providers.
+    Uses caches to avoid creating redundant client instances.
     """
     @staticmethod
-    def get_llm(
-        provider: str,
-        model_name: str,
-        api_key: Optional[str] = None,
-        base_url: Optional[str] = None
-    ) -> BaseLLM:
+    def get_llm_provider(
+        provider: Optional[str] = None,
+        model_name: Optional[str] = None,
+        temperature: float = 0.0,
+        max_tokens: int = 1000,
+        api_key: Optional[str] = None
+    ) -> BaseLLMProvider:
         """
-        Creates and returns a concrete LLM provider wrapper.
+        Retrieves or initializes an LLM provider singleton wrapper.
         
         Args:
-            provider: 'openai', 'anthropic', 'ollama', 'huggingface', or 'mock'.
-            model_name: Name of the model.
-            api_key: Optional API authentication token.
-            base_url: Optional server API URL (primarily for Ollama).
+            provider: 'openai', 'gemini', 'ollama', or 'mock'. Defaults to config.
+            model_name: Model ID string. Defaults to config.
+            temperature: Sampling temperature.
+            max_tokens: Limit on generated tokens.
+            api_key: API auth key override.
             
         Returns:
-            BaseLLM: Conformed LLM wrapper instance.
+            BaseLLMProvider: The instantiated provider singleton wrapper.
         """
-        provider_clean = provider.lower().strip()
-        logger.info(f"Instantiating LLM model: provider={provider_clean}, model={model_name}")
+        config = get_config()
+        
+        # Load from config defaults if parameters are omitted
+        prov_clean = (provider or config.LLM_PROVIDER).lower().strip()
+        model_clean = (model_name or config.LLM_MODEL).strip()
+        
+        cache_key = (prov_clean, model_clean)
+        
+        # Check cache registry
+        if cache_key in _llm_cache:
+            logger.info(f"Retrieving cached LLM provider singleton for key: {cache_key}")
+            return _llm_cache[cache_key]
 
+        logger.info(f"Creating new LLM provider instance for key: {cache_key}")
+        
         try:
-            if provider_clean == "openai":
-                from langchain_openai import ChatOpenAI
-                lc_llm = ChatOpenAI(model=model_name, api_key=api_key)
-                return LangChainLLMWrapper(lc_llm)
-
-            elif provider_clean == "anthropic":
-                from langchain_anthropic import ChatAnthropic
-                lc_llm = ChatAnthropic(model_name=model_name, api_key=api_key)
-                return LangChainLLMWrapper(lc_llm)
-
-            elif provider_clean == "ollama":
-                from langchain_community.chat_models import ChatOllama
-                # Convert localhost URL if provided
-                url = base_url or "http://localhost:11434"
-                lc_llm = ChatOllama(model=model_name, base_url=url)
-                return LangChainLLMWrapper(lc_llm)
-
-            elif provider_clean == "huggingface":
-                from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-                # Instantiate Endpoint first
-                endpoint = HuggingFaceEndpoint(
-                    repo_id=model_name,
-                    huggingfacehub_api_token=api_key,
-                    timeout=120
+            if prov_clean == "openai":
+                provider_inst = OpenAIProvider(
+                    model_name=model_clean,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    api_key=api_key
                 )
-                lc_llm = ChatHuggingFace(llm=endpoint)
-                return LangChainLLMWrapper(lc_llm)
-
-            elif provider_clean == "mock":
-                return MockLLM(model_name)
-
+            elif prov_clean in ["gemini", "google"]:
+                provider_inst = GeminiProvider(
+                    model_name=model_clean,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    api_key=api_key
+                )
+            elif prov_clean == "ollama":
+                # Check config url base if available
+                base_url = getattr(config, "OLLAMA_BASE_URL", "http://localhost:11434")
+                provider_inst = OllamaProvider(
+                    model_name=model_clean,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    base_url=base_url
+                )
+            elif prov_clean == "mock":
+                provider_inst = MockLLMProvider(
+                    model_name=model_clean,
+                    temperature=temperature,
+                    max_tokens=max_tokens
+                )
             else:
-                logger.warning(f"Unknown LLM provider '{provider}'. Falling back to MockLLM.")
-                return MockLLM(model_name)
-
+                logger.warning(
+                    f"Unsupported LLM provider '{provider}'. "
+                    f"Defaulting to MockLLMProvider."
+                )
+                provider_inst = MockLLMProvider(
+                    model_name=model_clean,
+                    temperature=temperature,
+                    max_tokens=max_tokens
+                )
+                
+            # Cache the instance
+            _llm_cache[cache_key] = provider_inst
+            return provider_inst
+            
         except Exception as e:
-            logger.error(f"Failed to load LLM provider '{provider}': {e}. Falling back to MockLLM.")
-            return MockLLM(model_name)
+            logger.error(f"Failed to initialize LLM provider: {e}")
+            raise LLMError(f"Factory could not construct provider: {e}")
+
+    @staticmethod
+    def clear_cache() -> None:
+        """
+        Clears the cached LLM providers.
+        """
+        global _llm_cache
+        logger.info("Clearing LLM providers cache.")
+        _llm_cache.clear()

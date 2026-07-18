@@ -48,6 +48,10 @@ class AppConfig(BaseSettings):
     # Embedding Settings
     EMBEDDING_PROVIDER: str = Field(default=DEFAULT_EMBEDDING_PROVIDER)
     EMBEDDING_MODEL: str = Field(default=DEFAULT_EMBEDDING_MODEL)
+    EMBEDDING_CACHE_DIR: Optional[str] = Field(default=None)
+    EMBEDDING_BATCH_SIZE: int = Field(default=32)
+    NORMALIZE_EMBEDDINGS: bool = Field(default=True)
+    EMBEDDING_DEVICE: Optional[str] = Field(default=None)
 
     # Vector Store Settings
     VECTOR_STORE_TYPE: str = Field(default=DEFAULT_VECTOR_STORE_TYPE)
