@@ -1,6 +1,8 @@
 # User Guide - Smart Research Assistant 📖
 > Complete handbook detailing how to manage documents, configure search parameters, inspect retrieval diagnostics, and run evaluations.
 
+🌐 **Live Deployed App:** [smart-research19.streamlit.app](https://smart-research19.streamlit.app/)
+
 ---
 
 ## 📖 Table of Contents

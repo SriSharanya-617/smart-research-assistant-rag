@@ -1,6 +1,8 @@
 # Smart Research Assistant 🤖🔍
 > Production-ready, modular RAG Knowledge System for querying Research Papers, Company Policies, Technical Documentation, PDFs, TXT, and Web Pages.
 
+⚡ **Live Demo Link:** [smart-research19.streamlit.app](https://smart-research19.streamlit.app/)
+
 [![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![Build Status](https://img.shields.io/badge/Tests-58%20passed-green.svg)](#performance-metrics)
 [![Streamlit App](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B.svg)](https://streamlit.io/)
