@@ -164,19 +164,19 @@ elif llm_provider == "openai":
 # 4. Initialize Core Backend Components
 @st.cache_resource
 def get_backend_resources(
-    _emb_provider, _emb_model, _vs_type, _llm_provider, _llm_model, _temp
+    emb_provider, emb_model, vs_type, llm_provider, llm_model, temp
 ):
     """
     Constructs and caches backend factories. Swapping settings triggers rebuild.
     """
     try:
         embeddings = EmbeddingFactory.get_embeddings(
-            provider=_emb_provider,
-            model_name=_emb_model
+            provider=emb_provider,
+            model_name=emb_model
         )
         
         vector_store = VectorStoreFactory.get_vector_store(
-            store_type=_vs_type,
+            store_type=vs_type,
             embeddings=embeddings
         )
         
@@ -188,9 +188,9 @@ def get_backend_resources(
         
         # Instantiate LLM Provider
         llm_provider_inst = LLMFactory.get_llm_provider(
-            provider=_llm_provider,
-            model_name=_llm_model,
-            temperature=_temp
+            provider=llm_provider,
+            model_name=llm_model,
+            temperature=temp
         )
         
         # Instantiate RAG Pipeline
