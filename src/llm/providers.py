@@ -82,21 +82,25 @@ class GeminiProvider(BaseLLMProvider):
         if not self.api_key:
             raise APIKeyError("Gemini API Key is missing. Set GOOGLE_API_KEY environment variable.")
             
-        from langchain_google_genai import ChatGoogleGenerativeAI
+        from google import genai
+        from google.genai import types
         
-        chat = ChatGoogleGenerativeAI(
-            model=self.model_name,
-            temperature=self.temperature,
-            max_output_tokens=self.max_tokens,
-            google_api_key=self.api_key,
-            system_instruction=system_prompt if system_prompt else None
-        )
-        
-        messages = [HumanMessage(content=prompt)]
+        client = genai.Client(api_key=self.api_key)
         
         start_time = time.time()
         try:
-            response = chat.invoke(messages)
+            config = types.GenerateContentConfig(
+                temperature=self.temperature,
+                max_output_tokens=self.max_tokens,
+                system_instruction=system_prompt if system_prompt else None
+            )
+            
+            response = client.models.generate_content(
+                model=self.model_name,
+                contents=prompt,
+                config=config
+            )
+            
             latency = time.time() - start_time
             
             self.last_metadata = {
@@ -104,10 +108,10 @@ class GeminiProvider(BaseLLMProvider):
                 "model_name": self.model_name,
                 "generation_latency": latency,
                 "retry_count": 0,
-                "token_usage": None  # Google GenAI sometimes omits token totals in invoke metadata
+                "token_usage": None  # Managed internally by the native SDK
             }
             
-            return response.content
+            return response.text
             
         except Exception as e:
             logger.error(f"Gemini generation failure: {e}")
