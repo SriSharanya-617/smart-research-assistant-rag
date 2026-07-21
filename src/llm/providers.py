@@ -88,13 +88,11 @@ class GeminiProvider(BaseLLMProvider):
             model=self.model_name,
             temperature=self.temperature,
             max_output_tokens=self.max_tokens,
-            google_api_key=self.api_key
+            google_api_key=self.api_key,
+            system_instruction=system_prompt if system_prompt else None
         )
         
-        messages = []
-        if system_prompt:
-            messages.append(SystemMessage(content=system_prompt))
-        messages.append(HumanMessage(content=prompt))
+        messages = [HumanMessage(content=prompt)]
         
         start_time = time.time()
         try:
