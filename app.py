@@ -125,7 +125,7 @@ st.sidebar.subheader("3. LLM Model Settings")
 llm_provider = st.sidebar.selectbox("LLM Provider", ["gemini", "openai", "ollama", "mock"], index=0)
 
 model_options = {
-    "gemini": ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.0-flash", "gemini-flash-latest", "gemini-pro-latest", "gemini-3.5-flash"],
+    "gemini": ["gemini-3.5-flash", "gemini-flash-latest", "gemini-2.5-pro", "gemini-2.0-flash", "gemini-pro-latest"],
     "openai": ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"],
     "ollama": ["llama3", "mistral", "phi3"],
     "mock": ["mock-model"]
